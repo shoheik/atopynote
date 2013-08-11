@@ -1,0 +1,62 @@
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item center full">
+        <h1 class="topcoat-navigation-bar__title">iTP</h1>
+    </div>
+</div>
+
+
+<!--
+<form>
+<input type='range' id="range1" class='topcoat-range-input'>
+<label for="range1">abc</label>
+<br>
+
+<input type="checkbox" id="example-checkbox-checked" class="topcoat-checkbox" checked="checked">
+<label for="example-checkbox-checked" class="topcoat-checkbox-label topcoat-checkbox-label--left">Extremely Long Label</label>
+<br>
+
+<input type="checkbox" id="example-checkbox-unchecked" class="topcoat-checkbox">
+<label for="example-checkbox-unchecked" class="topcoat-checkbox-label topcoat-checkbox-label--left">Extremely Long Label</label>
+<br>
+
+<input type="checkbox" id="example-checkbox-disabled" class="topcoat-checkbox is-disabled" disabled>
+<label for="example-checkbox-disabled" class="topcoat-checkbox-label topcoat-checkbox-label--left">Extremely Long Label</label>
+</form>
+-->
+
+
+<section class="dark-well">
+    <h2>Alex Trebek</h2>
+    write Chart here :)
+    <p>Watch "Jeopardy!", Alex Trebek's fun TV quiz game.</p>
+    <a href="#" class="light-cta light-button" role="button">Daily Double!</a>
+    <a href="#" class="light-button" role="button">Unfriend</a>
+</section>
+<br>
+<div class="topcoat-list__container scroller" style="top:138px;">
+    <ul class="topcoat-list list">
+        <a href="#form"><li class="topcoat-list__item toplist"><i class="icon-pencil"></i> 記録する<span class="chevron"></span></li></a>
+        <a href="#form"><li class="topcoat-list__item toplist"><i class="icon-pencil"></i> 記録する<span class="chevron"></span></li></a>
+    </ul>
+</div>
+
+<div id="chart_feeling" style="width:300px;height:300px" ></div>
+
+
+<script type="text/javascript">
+$(function () {
+    var d1 = [];
+    for (var i = 0; i < 14; i += 0.5)
+        d1.push([i, Math.sin(i)]);
+
+    var d2 = [[0, 3], [4, 8], [8, 5], [9, 13]];
+
+    // a null signifies separate line segments
+    var d3 = [[0, 12], [7, 12], null, [7, 2.5], [12, 2.5]];
+    
+    $.plot($("#chart_feeling"), [ d1, d2, d3 ]);
+});
+</script>
+
+
+
