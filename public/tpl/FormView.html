@@ -27,129 +27,144 @@
     <label for="bowels"><span class="range_value" id="range_bowels">3</span> 便(0:してない 1:ゆるめ 5:かため)</label>
     <br>
 
-    <table>
+    <hr>
+
+    <table border=1>
+      <tr> 
+        <th>朝ご飯</th>
+        <th>昼ご飯</th>
+        <th>晩ご飯</th>
+      </tr>
       <tr>
-         <td>
+         <td id="breakfirst">
            <input type="checkbox" name="food"  id="rice" class="topcoat-checkbox" />
            <label for="rice" class="topcoat-checkbox-label topcoat-checkbox-label--left">お米</label>
-        </td>
-        <td>
-          <input type="checkbox" name="food"  id="bread" class="topcoat-checkbox" />
-          <label for="bread" class="topcoat-checkbox-label topcoat-checkbox-label--left">パン</label>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
+           <input type="checkbox" name="food"  id="bread" class="topcoat-checkbox" />
+           <label for="bread" class="topcoat-checkbox-label topcoat-checkbox-label--left">パン</label>
            <input type="checkbox" name="food"  id="poteto" class="topcoat-checkbox" />
            <label for="poteto" class="topcoat-checkbox-label topcoat-checkbox-label--left">芋類</label>
-        </td>
-        <td>
-          <input type="checkbox" name="food" id="lite-vege" class="topcoat-checkbox" />
-          <label for="lite-vege" class="topcoat-checkbox-label topcoat-checkbox-label--left">淡色野菜</label>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <input type="checkbox" name="food" id="dark-vege" class="topcoat-checkbox"/>
-          <label for="dark-vege" class="topcoat-checkbox-label topcoat-checkbox-label--left">緑黄色野菜</label>
-        </td>
-        <td>
-          <input type="checkbox" name="food"  id="milk" class="topcoat-checkbox" />
-          <label for="milk" class="topcoat-checkbox-label topcoat-checkbox-label--left">牛乳製品</label>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <input type="checkbox" name="food" id="egg" class="topcoat-checkbox"/>
-          <label for="egg" class="topcoat-checkbox-label topcoat-checkbox-label--left">卵</label>
-        </td>
-        <td>
-          <input type="checkbox" name="food"  id="soy" class="topcoat-checkbox" />
-          <label for="soy" class="topcoat-checkbox-label topcoat-checkbox-label--left">大豆製品</label>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <input type="checkbox" name="food" id="seaweed_mushroom" class="topcoat-checkbox"/>
-          <label for="seaweed_mushroom" class="topcoat-checkbox-label topcoat-checkbox-label--left">海藻・キノコ類</label>
-        </td>
-        <td>
-          <input type="checkbox" name="food"  id="seed" class="topcoat-checkbox" />
-          <label for="seed" class="topcoat-checkbox-label topcoat-checkbox-label--left">種子類(ごま等）</label>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <input type="checkbox" name="food" id="chiken" class="topcoat-checkbox"/>
-          <label for="chiken" class="topcoat-checkbox-label topcoat-checkbox-label--left">鶏肉</label>
-        </td>
-        <td>
-          <input type="checkbox" name="food"  id="pork" class="topcoat-checkbox" />
-          <label for="pork" class="topcoat-checkbox-label topcoat-checkbox-label--left">豚肉</label>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <input type="checkbox" name="food" id="beef" class="topcoat-checkbox"/>
-          <label for="beef" class="topcoat-checkbox-label topcoat-checkbox-label--left">牛肉</label>
-        </td>
-        <td>
-          <input type="checkbox" name="food"  id="fish" class="topcoat-checkbox" />
-          <label for="fish" class="topcoat-checkbox-label topcoat-checkbox-label--left">魚</label>
-        </td>
-      </tr>
-
-     <tr>
-       <td>
-         <input type="checkbox" name="food"  id="beer" class="topcoat-checkbox" />
-         <label for="beer" class="topcoat-checkbox-label topcoat-checkbox-label--left">ビール</label>
+           <input type="checkbox" name="food" id="lite-vege" class="topcoat-checkbox" />
+           <label for="lite-vege" class="topcoat-checkbox-label topcoat-checkbox-label--left">淡色野菜</label>
+           <input type="checkbox" name="food" id="dark-vege" class="topcoat-checkbox"/>
+           <label for="dark-vege" class="topcoat-checkbox-label topcoat-checkbox-label--left">緑黄色野菜</label>
+           <input type="checkbox" name="food"  id="milk" class="topcoat-checkbox" />
+           <label for="milk" class="topcoat-checkbox-label topcoat-checkbox-label--left">牛乳製品</label>
+           <input type="checkbox" name="food" id="egg" class="topcoat-checkbox"/>
+           <label for="egg" class="topcoat-checkbox-label topcoat-checkbox-label--left">卵</label>
+           <input type="checkbox" name="food"  id="soy" class="topcoat-checkbox" />
+           <label for="soy" class="topcoat-checkbox-label topcoat-checkbox-label--left">大豆製品</label>
+           <input type="checkbox" name="food" id="seaweed_mushroom" class="topcoat-checkbox"/>
+           <label for="seaweed_mushroom" class="topcoat-checkbox-label topcoat-checkbox-label--left">海藻・キノコ類</label>
+           <input type="checkbox" name="food"  id="seed" class="topcoat-checkbox" />
+           <label for="seed" class="topcoat-checkbox-label topcoat-checkbox-label--left">種子類(ごま等）</label>
+           <input type="checkbox" name="food" id="chiken" class="topcoat-checkbox"/>
+           <label for="chiken" class="topcoat-checkbox-label topcoat-checkbox-label--left">鶏肉</label>
+           <input type="checkbox" name="food"  id="pork" class="topcoat-checkbox" />
+           <label for="pork" class="topcoat-checkbox-label topcoat-checkbox-label--left">豚肉</label>
+           <input type="checkbox" name="food" id="beef" class="topcoat-checkbox"/>
+           <label for="beef" class="topcoat-checkbox-label topcoat-checkbox-label--left">牛肉</label>
+           <input type="checkbox" name="food"  id="fish" class="topcoat-checkbox" />
+           <label for="fish" class="topcoat-checkbox-label topcoat-checkbox-label--left">魚</label>
+           <input type="checkbox" name="food"  id="beer" class="topcoat-checkbox" />
+           <label for="beer" class="topcoat-checkbox-label topcoat-checkbox-label--left">ビール</label>
+           <input type="checkbox" name="food"  id="wine" class="topcoat-checkbox" />
+           <label for="wine" class="topcoat-checkbox-label topcoat-checkbox-label--left">ワイン</label>
+           <input type="checkbox" name="food"  id="other_alcohol" class="topcoat-checkbox" />
+           <label for="other_alcohol" class="topcoat-checkbox-label topcoat-checkbox-label--left">その他の酒</label>
+           <input type="checkbox" name="food"  id="fried" class="topcoat-checkbox" />
+           <label for="fried" class="topcoat-checkbox-label topcoat-checkbox-label--left">揚げ物</label>
+           <input type="checkbox" name="food"  id="snack" class="topcoat-checkbox" />
+           <label for="snack" class="topcoat-checkbox-label topcoat-checkbox-label--left">菓子</label>
+           <input type="checkbox" name="food"  id="fruit" class="topcoat-checkbox" />
+           <label for="fruit" class="topcoat-checkbox-label topcoat-checkbox-label--left">果物</label>
        </td>
-       <td>
-         <input type="checkbox" name="food"  id="wine" class="topcoat-checkbox" />
-         <label for="wine" class="topcoat-checkbox-label topcoat-checkbox-label--left">ワイン</label>
-       </td>
+       <td id="lunch">
+           <input type="checkbox" name="food"  id="rice" class="topcoat-checkbox" />
+           <label for="rice" class="topcoat-checkbox-label topcoat-checkbox-label--left">お米</label>
+           <input type="checkbox" name="food"  id="bread" class="topcoat-checkbox" />
+           <label for="bread" class="topcoat-checkbox-label topcoat-checkbox-label--left">パン</label>
+           <input type="checkbox" name="food"  id="poteto" class="topcoat-checkbox" />
+           <label for="poteto" class="topcoat-checkbox-label topcoat-checkbox-label--left">芋類</label>
+           <input type="checkbox" name="food" id="lite-vege" class="topcoat-checkbox" />
+           <label for="lite-vege" class="topcoat-checkbox-label topcoat-checkbox-label--left">淡色野菜</label>
+           <input type="checkbox" name="food" id="dark-vege" class="topcoat-checkbox"/>
+           <label for="dark-vege" class="topcoat-checkbox-label topcoat-checkbox-label--left">緑黄色野菜</label>
+           <input type="checkbox" name="food"  id="milk" class="topcoat-checkbox" />
+           <label for="milk" class="topcoat-checkbox-label topcoat-checkbox-label--left">牛乳製品</label>
+           <input type="checkbox" name="food" id="egg" class="topcoat-checkbox"/>
+           <label for="egg" class="topcoat-checkbox-label topcoat-checkbox-label--left">卵</label>
+           <input type="checkbox" name="food"  id="soy" class="topcoat-checkbox" />
+           <label for="soy" class="topcoat-checkbox-label topcoat-checkbox-label--left">大豆製品</label>
+           <input type="checkbox" name="food" id="seaweed_mushroom" class="topcoat-checkbox"/>
+           <label for="seaweed_mushroom" class="topcoat-checkbox-label topcoat-checkbox-label--left">海藻・キノコ類</label>
+           <input type="checkbox" name="food"  id="seed" class="topcoat-checkbox" />
+           <label for="seed" class="topcoat-checkbox-label topcoat-checkbox-label--left">種子類(ごま等）</label>
+           <input type="checkbox" name="food" id="chiken" class="topcoat-checkbox"/>
+           <label for="chiken" class="topcoat-checkbox-label topcoat-checkbox-label--left">鶏肉</label>
+           <input type="checkbox" name="food"  id="pork" class="topcoat-checkbox" />
+           <label for="pork" class="topcoat-checkbox-label topcoat-checkbox-label--left">豚肉</label>
+           <input type="checkbox" name="food" id="beef" class="topcoat-checkbox"/>
+           <label for="beef" class="topcoat-checkbox-label topcoat-checkbox-label--left">牛肉</label>
+           <input type="checkbox" name="food"  id="fish" class="topcoat-checkbox" />
+           <label for="fish" class="topcoat-checkbox-label topcoat-checkbox-label--left">魚</label>
+           <input type="checkbox" name="food"  id="beer" class="topcoat-checkbox" />
+           <label for="beer" class="topcoat-checkbox-label topcoat-checkbox-label--left">ビール</label>
+           <input type="checkbox" name="food"  id="wine" class="topcoat-checkbox" />
+           <label for="wine" class="topcoat-checkbox-label topcoat-checkbox-label--left">ワイン</label>
+           <input type="checkbox" name="food"  id="other_alcohol" class="topcoat-checkbox" />
+           <label for="other_alcohol" class="topcoat-checkbox-label topcoat-checkbox-label--left">その他の酒</label>
+           <input type="checkbox" name="food"  id="fried" class="topcoat-checkbox" />
+           <label for="fried" class="topcoat-checkbox-label topcoat-checkbox-label--left">揚げ物</label>
+           <input type="checkbox" name="food"  id="snack" class="topcoat-checkbox" />
+           <label for="snack" class="topcoat-checkbox-label topcoat-checkbox-label--left">菓子</label>
+           <input type="checkbox" name="food"  id="fruit" class="topcoat-checkbox" />
+           <label for="fruit" class="topcoat-checkbox-label topcoat-checkbox-label--left">果物</label>
+        </td>
+        <td id="dinner">
+           <input type="checkbox" name="food"  id="rice" class="topcoat-checkbox" />
+           <label for="rice" class="topcoat-checkbox-label topcoat-checkbox-label--left">お米</label>
+           <input type="checkbox" name="food"  id="bread" class="topcoat-checkbox" />
+           <label for="bread" class="topcoat-checkbox-label topcoat-checkbox-label--left">パン</label>
+           <input type="checkbox" name="food"  id="poteto" class="topcoat-checkbox" />
+           <label for="poteto" class="topcoat-checkbox-label topcoat-checkbox-label--left">芋類</label>
+           <input type="checkbox" name="food" id="lite-vege" class="topcoat-checkbox" />
+           <label for="lite-vege" class="topcoat-checkbox-label topcoat-checkbox-label--left">淡色野菜</label>
+           <input type="checkbox" name="food" id="dark-vege" class="topcoat-checkbox"/>
+           <label for="dark-vege" class="topcoat-checkbox-label topcoat-checkbox-label--left">緑黄色野菜</label>
+           <input type="checkbox" name="food"  id="milk" class="topcoat-checkbox" />
+           <label for="milk" class="topcoat-checkbox-label topcoat-checkbox-label--left">牛乳製品</label>
+           <input type="checkbox" name="food" id="egg" class="topcoat-checkbox"/>
+           <label for="egg" class="topcoat-checkbox-label topcoat-checkbox-label--left">卵</label>
+           <input type="checkbox" name="food"  id="soy" class="topcoat-checkbox" />
+           <label for="soy" class="topcoat-checkbox-label topcoat-checkbox-label--left">大豆製品</label>
+           <input type="checkbox" name="food" id="seaweed_mushroom" class="topcoat-checkbox"/>
+           <label for="seaweed_mushroom" class="topcoat-checkbox-label topcoat-checkbox-label--left">海藻・キノコ類</label>
+           <input type="checkbox" name="food"  id="seed" class="topcoat-checkbox" />
+           <label for="seed" class="topcoat-checkbox-label topcoat-checkbox-label--left">種子類(ごま等）</label>
+           <input type="checkbox" name="food" id="chiken" class="topcoat-checkbox"/>
+           <label for="chiken" class="topcoat-checkbox-label topcoat-checkbox-label--left">鶏肉</label>
+           <input type="checkbox" name="food"  id="pork" class="topcoat-checkbox" />
+           <label for="pork" class="topcoat-checkbox-label topcoat-checkbox-label--left">豚肉</label>
+           <input type="checkbox" name="food" id="beef" class="topcoat-checkbox"/>
+           <label for="beef" class="topcoat-checkbox-label topcoat-checkbox-label--left">牛肉</label>
+           <input type="checkbox" name="food"  id="fish" class="topcoat-checkbox" />
+           <label for="fish" class="topcoat-checkbox-label topcoat-checkbox-label--left">魚</label>
+           <input type="checkbox" name="food"  id="beer" class="topcoat-checkbox" />
+           <label for="beer" class="topcoat-checkbox-label topcoat-checkbox-label--left">ビール</label>
+           <input type="checkbox" name="food"  id="wine" class="topcoat-checkbox" />
+           <label for="wine" class="topcoat-checkbox-label topcoat-checkbox-label--left">ワイン</label>
+           <input type="checkbox" name="food"  id="other_alcohol" class="topcoat-checkbox" />
+           <label for="other_alcohol" class="topcoat-checkbox-label topcoat-checkbox-label--left">その他の酒</label>
+           <input type="checkbox" name="food"  id="fried" class="topcoat-checkbox" />
+           <label for="fried" class="topcoat-checkbox-label topcoat-checkbox-label--left">揚げ物</label>
+           <input type="checkbox" name="food"  id="snack" class="topcoat-checkbox" />
+           <label for="snack" class="topcoat-checkbox-label topcoat-checkbox-label--left">菓子</label>
+           <input type="checkbox" name="food"  id="fruit" class="topcoat-checkbox" />
+           <label for="fruit" class="topcoat-checkbox-label topcoat-checkbox-label--left">果物</label>
+       </td> 
      </tr>
-
-     <tr>
-       <td>
-         <input type="checkbox" name="food"  id="other_alcohol" class="topcoat-checkbox" />
-         <label for="other_alcohol" class="topcoat-checkbox-label topcoat-checkbox-label--left">その他の酒</label>
-       </td>
-       <td>
-         <input type="checkbox" name="food"  id="wine" class="topcoat-checkbox" />
-         <label for="wine" class="topcoat-checkbox-label topcoat-checkbox-label--left">ワイン</label>
-       </td>
-     </tr>
-
-     <tr>
-       <td>
-         <input type="checkbox" name="food"  id="fried" class="topcoat-checkbox" />
-         <label for="fried" class="topcoat-checkbox-label topcoat-checkbox-label--left">揚げ物</label>
-       </td>
-       <td>
-         <input type="checkbox" name="food"  id="snack" class="topcoat-checkbox" />
-         <label for="snack" class="topcoat-checkbox-label topcoat-checkbox-label--left">菓子</label>
-       </td>
-     </tr>
-
-     <tr>
-       <td>
-         <input type="checkbox" name="food"  id="fruit" class="topcoat-checkbox" />
-         <label for="fruit" class="topcoat-checkbox-label topcoat-checkbox-label--left">果物</label>
-       </td>
-       <td>
-       </td>
-     </tr>
-
-
   </table>
-
+  <br>
   <div id="home_menu">
     <button id="submit" class="topcoat-button"><i class="icon-upload"></i>送信する</button>
   </div>
