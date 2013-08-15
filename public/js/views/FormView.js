@@ -28,12 +28,27 @@ app.views.FormView = Backbone.View.extend({
         this.model.set("stress", $('input#stress').val());
         this.model.set("sleep", $('input#sleep').val());
         this.model.set("bowels", $('input#bowels').val());
-        this.model.set("excercise", $('select#excercise').val());
-        var food = [];
-        $('[name="food"]:checked').each(function(){
-            food.push($(this).attr('id'));
+        this.model.set("exercise", $('input#exercise').val());
+
+        var breakfirst = [];
+        $('td#breakfirst [name="food"]:checked').each(function(){
+            breakfirst.push($(this).attr('id'));
         });
-        this.model.set("food", food);
+
+        var lunch = [];
+        $('td#lunch [name="food"]:checked').each(function(){
+            lunch.push($(this).attr('id'));
+        });
+
+        var dinner = [];
+        $('td#dinner [name="food"]:checked').each(function(){
+            dinner.push($(this).attr('id'));
+        });
+
+        this.model.set("breakfirst", breakfirst);
+        this.model.set("lunch", lunch);
+        this.model.set("dinner", dinner);
+
         console.log(this.model.toJSON());
         this.model.save();
         //this.model.save(null, { success : function(model, res){ 

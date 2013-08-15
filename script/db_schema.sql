@@ -7,6 +7,7 @@ CREATE TABLE User
     email VARCHAR(50),
     username VARCHAR(20),
     password CHAR(40),
+    PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS Diary;
@@ -17,10 +18,10 @@ CREATE TABLE Diary
     page_id BIGINT,
     PRIMARY KEY (id),
     INDEX(id),
-    FOREIGN KEY(diary_id) REFERENCES Page(id)
+    FOREIGN KEY(page_id) REFERENCES Page(id)
       ON DELETE CASCADE,
     FOREIGN KEY(user_id) REFERENCES User(id)
-      ON DELETE CASCADE,
+      ON DELETE CASCADE
 ) ENGINE=INNODB;;
 
 
@@ -43,6 +44,7 @@ DROP TABLE IF EXISTS Meal;
 CREATE TABLE Meal 
 (
     id INT AUTO_INCREMENT, 
+    type VARCHAR(10),
     rice BOOL,
     bread BOOL,
     poteto BOOL,
