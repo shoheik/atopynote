@@ -15,6 +15,7 @@ install_table Diary => schema {
     pk 'id';
     columns qw/ 
         id
+        date
         user_id
         page_id
     /;
@@ -24,7 +25,6 @@ install_table Page => schema {
     pk 'id';
     columns qw/ 
         id
-        date
         itch
         feeling
         stress

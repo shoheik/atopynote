@@ -28,6 +28,18 @@ sub _build_db {
 
 sub add_page {
     my ($self, $data) = @_;
+    $self->db->create(
+        'Page', 
+        {
+            date => $data->{date},
+            bowels => $data->{bowels},
+            stress => $data->{stress},
+            feeling => $data->{feeling},
+            itch => $data->{itch},
+            sleep => $data->{sleep},
+            exercise => $data->{exercise}
+        }
+    );
     print Dumper $data;
 }
 

@@ -35,6 +35,7 @@ app.routers.AppRouter = Backbone.Router.extend({
             console.log('reusing form view');
             app.homeView.delegateEvents(); // delegate events when the view is recycled
         }
+        $('body').html(app.formView.$el);
         //app.slider.slidePage(app.formView.$el);
     },
 
