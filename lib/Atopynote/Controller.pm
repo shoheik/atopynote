@@ -1,13 +1,26 @@
 package Atopynote::Controller;
 use Mojo::Base 'Mojolicious::Controller';
 use Data::Dumper;
+use Plack::Session;
 
-# This action will render a template
-sub welcome {
+# Access to '/'. 
+# Check session
+# If session is not ok, show static top page(top.html)
+# Otherwise, show index (TODO)
+sub top {
   my $self = shift;
-  $self->render(
-    text => 'Welcome');
+  my $session = Plack::Session->new( $self->req->env );
+  my $verified = $session->get('verified');
+  if (defined $verified) {
+      # session is ok 
+      # TODO this should be integreated to main Mojo view
+      $self->redirect_to('/index.html');
+  } else {
+      # no session 
+      $self->redirect_to('/top.html');
+  }
 }
+
 
 sub submit {
     my $self = shift;

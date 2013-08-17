@@ -9,13 +9,13 @@ sub startup {
     my $config = $self->plugin('Config', {file => "$Bin/../etc/atopynote.conf"});
 
     my $m = Atopynote::Model->new(config => $config);
-    $self->helper(model => sub {$m} );
+    $self->helper(model => sub {$m});
 
     # Router
     my $r = $self->routes;
 
     # Normal route to controller
-    $r->get('/')->to('controller#welcome');
+    $r->get('/')->to('controller#top');
     $r->post('/submit')->to('controller#submit');
 }
 
