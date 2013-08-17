@@ -12,7 +12,7 @@ install_table User => schema {
 };
 
 install_table Diary => schema {
-    pk 'id';
+    pk 'id','date', 'user_id';
     columns qw/ 
         id
         date
@@ -31,7 +31,9 @@ install_table Page => schema {
         bowels
         sleep
         exercise
-        meal_id
+        breakfirst_id
+        lunch_id
+        dinner_id
     /;
 };
 

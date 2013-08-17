@@ -17,7 +17,7 @@ CREATE TABLE Diary
     date DATE,
     user_id BIGINT,
     page_id BIGINT,
-    PRIMARY KEY (id),
+    PRIMARY KEY (id, date, user_id),
     INDEX(id),
     FOREIGN KEY(page_id) REFERENCES Page(id)
       ON DELETE CASCADE,
@@ -36,7 +36,9 @@ CREATE TABLE Page
     bowels INT,
     sleep FLOAT,
     exercise INT,
-    meal_id INT,
+    breakfirst_id INT,
+    lunch_id INT,
+    dinner_id INT,
     PRIMARY KEY(id)
 ) ENGINE=INNODB;;
 
@@ -44,7 +46,6 @@ DROP TABLE IF EXISTS Meal;
 CREATE TABLE Meal 
 (
     id INT AUTO_INCREMENT, 
-    type VARCHAR(10),
     rice BOOL NOT NULL DEFAULT 0,
     bread BOOL NOT NULL DEFAULT 0,
     poteto BOOL NOT NULL DEFAULT 0,
