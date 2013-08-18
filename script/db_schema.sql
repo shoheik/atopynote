@@ -8,7 +8,7 @@ CREATE TABLE User
     username VARCHAR(20),
     gender VARCHAR(6),
     age INT,
-    password CHAR(40),
+    password CHAR(65),
     PRIMARY KEY (id)
 );
 

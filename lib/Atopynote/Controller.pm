@@ -21,12 +21,23 @@ sub top {
   }
 }
 
-
 sub submit {
     my $self = shift;
     my $data = $self->req->json;
     $self->model->add_page($self->req->json);
     $self->render( text => 'I got this');
+}
+
+# register user
+sub register {
+    my $self = shift;
+    my $data;
+    $data->{age} = $self->param('age');
+    $data->{id} = $self->param('id');
+    $data->{gender} = $self->param('gender');
+    $data->{password} = $self->param('password');
+    $self->model->register($data);
+    $self->render(text => '認証コードを入れるページ');
 }
 
 1;

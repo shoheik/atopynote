@@ -17,6 +17,7 @@ sub startup {
     # Normal route to controller
     $r->get('/')->to('controller#top');
     $r->post('/submit')->to('controller#submit');
+    $r->post('/register')->to('controller#register');
 }
 
 1;

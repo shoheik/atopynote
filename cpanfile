@@ -6,3 +6,7 @@ requires 'DBIx::Skinny', 0.0742;
 requires 'DBD::mysql',4.023;
 requires 'YAML', 0.84;
 requires 'Cache::Memcached::Fast', 0.21;
+requires 'Digest::SHA';
+requires 'TheSchwartz', 1.10;
+requires 'Mail::Mailer';
+

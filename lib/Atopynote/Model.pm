@@ -4,9 +4,11 @@ use Data::Dumper;
 use FindBin qw($Bin);
 use Atopynote::DB;
 use Atopynote::DB::Schema;
+use Digest::SHA qw(sha256_hex);
 use utf8;
 use Encode;
-#use Cache::Memcached::Fast;
+use Cache::Memcached::Fast;
+use TheSchwartz;
 
 has 'config' => (
     is => 'ro',
@@ -16,6 +18,18 @@ has 'config' => (
 has 'db' => (
     is => 'ro',
     builder => '_build_db',
+);
+
+has 'memd' => (
+    is => 'ro',
+    builder => '_build_memcached',
+    lazy => 1,
+);
+
+has 'qclient' => (
+    is => 'ro',
+    lazy => 1,
+    builder => '_build_qclient',
 );
 
 has 'schema' => (
@@ -32,7 +46,65 @@ sub _build_db {
     });
 }
 
+sub _build_memcached {
+    my $self = shift;
+    my $server = $self->config->{memcache_server};
+    my $port = $self->config->{memcache_port};
+    if (defined $server && defined $port){
+        return Cache::Memcached::Fast->new({ 
+            servers => [ { address => "$server:$port" }],
+            utf8 => 1,
+        });
+    }
+    else {
+        return undef;
+    }
+}
 
+sub _build_qclient {
+    my $self = shift;
+    return TheSchwartz->new(
+        databases => [{
+            #dsn  => 'dbi:mysql:TheSchwartz',
+            # TODO TheSchartz DB is the same as main one
+            dsn => $self->config->{db_dsn},
+            user =>  $self->config->{db_username},
+            pass =>  $self->config->{password},
+        }],
+        verbose => 1,
+    );
+}
+
+# Tokumaru book :)
+sub get_password_hash{
+    my ($self, $id, $pass) = @_;
+    my $salt = $self->get_salt($id);
+    my $hash = '';
+    for (1..$self->config->{stretch_count}) {
+        $hash =  sha256_hex($hash . $pass . $salt);
+    }
+    return $hash;
+}
+
+sub get_salt{
+    my ($self, $id) = @_;
+    return $id . pack("H*", $self->config->{fixed_salt});
+}
+
+sub register {
+    my ($self, $data) = @_;
+    #-----------------------------
+    # 1. Create hash with salt
+    # 2. Send mail with Job Queue
+    #-----------------------------
+    my $hash = $self->get_password_hash($data->{id}, $data->{password});
+    $data->{password} = $hash;
+    $data->{onetime} = int(rand(90000)) + 10000; # 5 number to authenticate later
+    $self->memd->set($data->{id}, $data, 60 * 15);
+
+    # Send mail now
+    $self->qclient->insert(MailWorker => $data->{onetime}); 
+}
 
 sub add_page {
     my ($self, $data) = @_;
