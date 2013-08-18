@@ -6,6 +6,8 @@ CREATE TABLE User
     id BIGINT AUTO_INCREMENT, 
     email VARCHAR(50),
     username VARCHAR(20),
+    gender VARCHAR(6),
+    age INT,
     password CHAR(40),
     PRIMARY KEY (id)
 );

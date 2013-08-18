@@ -8,6 +8,8 @@ install_table User => schema {
         email
         username
         password
+        gender
+        age
     /;
 };
 
