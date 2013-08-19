@@ -29,6 +29,7 @@ sub submit {
 }
 
 # register user
+# show confirmation page 
 sub register {
     my $self = shift;
     my $data;
@@ -37,7 +38,8 @@ sub register {
     $data->{gender} = $self->param('gender');
     $data->{password} = $self->param('password');
     $self->model->register($data);
-    $self->render(text => '認証コードを入れるページ');
+    $self->stash( id => $data->{id} );
+    $self->render('register_confirmation');
 }
 
 1;

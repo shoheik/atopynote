@@ -10,22 +10,28 @@ use Encode;
  
 sub work {
     my ($class, $job) = @_;
+
+    my $info = $job->arg;
+    my $subject = "認証用コード[Atopy Note]";
+    my $code = $info->{code};
+    my $body = "認証用コード: $code";
+    my $to = $info->{email};
  
     print "process...\n";
     print Dumper $job->arg;
-    my $info = $job->arg;
-    #my $subject = encode('MIME-Header-ISO_2022_JP', $info->{'subject'});
-    #my $body = encode('iso-2022-jp', $info->{'body'});
+    my $subject = encode('MIME-Header-ISO_2022_JP', $subject);
+    my $body = encode('iso-2022-jp', $body);
 
-    #my $mailer = new Mail::Mailer 'smtp', Server => 'localhost';
-    #$mailer->open(
-    #    {To => $info->{'email'},
-    #    From => 'no-reply@atopynote.com',
-    #    Subject => $subject,
-    #    }
-    #);
-    #print $mailer $body;
-    #$mailer->close; 
+    my $mailer = new Mail::Mailer 'smtp', Server => 'localhost';
+    $mailer->open(
+        {
+            To => $to,
+            From => 'no-reply@atopynote.com',
+            Subject => $subject,
+        }
+    );
+    print $mailer $body;
+    $mailer->close; 
     $job->completed();
 }
  

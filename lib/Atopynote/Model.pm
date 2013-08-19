@@ -103,7 +103,13 @@ sub register {
     $self->memd->set($data->{id}, $data, 60 * 15);
 
     # Send mail now
-    $self->qclient->insert(MailWorker => $data->{onetime}); 
+    $self->qclient->insert(MailWorker => 
+        { 
+            code => $data->{onetime}, 
+            email => $data->{id}, 
+        }
+    ); 
+
 }
 
 sub add_page {
