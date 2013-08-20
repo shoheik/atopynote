@@ -20,7 +20,18 @@
   <script type="text/javascript">
     $(document).ready(function() {
         $('form').submit(function() {
-            alert("a");
+            var data = {};
+            data.id = $('input#id').val(); 
+            data.code = $('input#onetime_code').val(); 
+            $.post('/confirm_registry', data, function(res) {
+                if (res == 'ok'){
+                    alert("ご登録ありがとうございます");
+                    location.href = "/";
+                }else {
+                    $("#errmsg").html("認証コードが正しくありません");
+                }
+            });
+
             return false;
         });
     });
@@ -56,6 +67,7 @@
                           <div class="pure-control-group">
                             <label></label>
                             <button class="pure-button pure-button-success">送信する</button>
+                            <span id="errmsg"></span>
                           </div>
                       </fieldset>
                   </form>

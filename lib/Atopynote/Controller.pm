@@ -1,4 +1,6 @@
 package Atopynote::Controller;
+use strict;
+use warnings;
 use Mojo::Base 'Mojolicious::Controller';
 use Data::Dumper;
 use Plack::Session;
@@ -41,5 +43,24 @@ sub register {
     $self->stash( id => $data->{id} );
     $self->render('register_confirmation');
 }
+
+sub confirm_registry {
+    my $self = shift;
+    my $data;
+    $data->{id} = $self->param('id');
+    $data->{code} = $self->param('code');
+    my $result = $self->model->confirm_registry($data);
+    $self->render(text => $result );
+}
+
+sub login {
+    my $self = shift;
+    my $data;
+    $data->{id} = $self->param('id');
+    $data->{password} = $self->param('password');
+    my $result = $self->model->login($data);
+    $self->render(text => $result );
+}
+
 
 1;

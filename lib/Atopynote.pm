@@ -18,6 +18,8 @@ sub startup {
     $r->get('/')->to('controller#top');
     $r->post('/submit')->to('controller#submit');
     $r->post('/register')->to('controller#register');
+    $r->post('/confirm_registry')->to('controller#confirm_registry');
+    $r->post('/login')->to('controller#login');
 }
 
 1;

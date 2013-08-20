@@ -230,5 +230,29 @@ sub add_page {
     }
 }
 
+sub confirm_registry {
+    my ($self, $data) = @_;
+    my $user_info = $self->memd->get($data->{id});
+    print Dumper $user_info;
+    if ($data->{code} eq $user_info->{onetime} ){
+        $self->db->create('User', 
+            {
+                email => $user_info->{id},
+                age => $user_info->{age},
+                gender => $user_info->{gender},
+                password => $user_info->{password},
+             }
+        );
+        return "ok";
+    }else {
+        return "notok";
+    }
+}
+
+sub login {
+    my ($self, $data) = @_;
+    print Dumper $data;
+    return "notok";
+}
 
 1;
