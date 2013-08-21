@@ -238,6 +238,7 @@ sub confirm_registry {
         $self->db->create('User', 
             {
                 email => $user_info->{id},
+                username => $user_info->{username},
                 age => $user_info->{age},
                 gender => $user_info->{gender},
                 password => $user_info->{password},

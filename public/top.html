@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atopy Note</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+    <link rel="stylesheet" href="/css/pure/pure-min.css">
     <script src="/lib/jquery/jquery-1.10.2.min.js"></script>
   </head>
   <style>
@@ -25,7 +25,7 @@
             data.password = $('input#password').val(); 
             $.post('/login', data, function(res) {
                 if (res == 'ok'){
-                    location.href = "/index";
+                    location.href = "/";
                 }else {
                     $("#errmsg").html("IDまたはパスワードが正しくありません");
                 }

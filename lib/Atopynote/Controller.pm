@@ -40,6 +40,7 @@ sub register {
     $data->{id} = $self->param('id');
     $data->{gender} = $self->param('gender');
     $data->{password} = $self->param('password');
+    $data->{username} = $self->param('username');
     $self->model->register($data);
     $self->stash( id => $data->{id} );
     $self->render('register_confirmation');

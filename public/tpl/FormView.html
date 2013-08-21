@@ -1,15 +1,7 @@
-<div class="topcoat-navigation-bar">
-    <div class="topcoat-navigation-bar__item left quarter">
-        <a class="topcoat-icon-button--quiet" href="#"><i class="icon-chevron-left icon-large"></i></a>
-    </div>
-    <div class="topcoat-navigation-bar__item center half">
-        <h1 class="topcoat-navigation-bar__title">記録する</h1>
-    </div>
-</div>
+<h1>記録する</h1>
+<form class="pure-form">
 
-<div id="submition">
-
-    <h2 class="title"><%= date %></h2>
+    <h2><%= date %></h2>
     <br>
     <input type="range" class="form_range topcoat-range-input" id="feeling" value="3" min="1" max="5" />
     <label for="feeling"><span class="range_value" id="range_feeling">3</span> 調子(1:悪 5:良)</label>
@@ -168,9 +160,10 @@
   </table>
   <br>
   <div id="home_menu">
-    <button id="submit" class="topcoat-button"><i class="icon-upload"></i>送信する</button>
+    <button id="submit" class="pure-button pure-button-primary">送信する</button>
   </div>
   <br>
+</form>
 
 
 </div>
