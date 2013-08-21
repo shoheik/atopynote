@@ -20,6 +20,8 @@ sub startup {
     $r->post('/register')->to('controller#register');
     $r->post('/confirm_registry')->to('controller#confirm_registry');
     $r->post('/login')->to('controller#login');
+    $r->get('/logoff')->to('controller#logoff');
+    $r->get('/ajaxValidateFieldName')->to('controller#validate_user');
 }
 
 1;

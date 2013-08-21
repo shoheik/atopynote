@@ -1440,7 +1440,7 @@
 										 var txt = options.allrules[msg].alertText;
 										 if (txt) {
 											msg = txt;
-							}
+							             }
 									 }
 								 }
 								 else

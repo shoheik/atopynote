@@ -250,9 +250,30 @@ sub confirm_registry {
 }
 
 sub login {
-    my ($self, $data) = @_;
+    my ($self, $session, $data) = @_;
     print Dumper $data;
-    return "notok";
+    my $row = $self->db->single('User', {email => $data->{id} });
+    if (defined $row) {
+        my $db_pass = $row->get_column('password');
+        my $hash = $self->get_password_hash($data->{id}, $data->{password});
+        if ($db_pass eq $hash) {
+            return 'ok';
+        }else {
+            return 'notok';
+        }
+    }else {
+        return "notok";
+    }
+}
+
+sub validate_user {
+    my ($self, $username) = @_;
+    my $row = $self->db->single('User', {username => $username });
+    if (defined $row) {
+        return Mojo::JSOON->false;
+    }else {
+        return Mojo::JSON->true;
+    }
 }
 
 1;

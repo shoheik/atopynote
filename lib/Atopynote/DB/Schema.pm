@@ -2,7 +2,7 @@ package Atopynote::DB::Schema;
 use DBIx::Skinny::Schema;
 
 install_table User => schema {
-    pk 'id';
+    pk 'id', 'email', 'username';
     columns qw/ 
         id
         email

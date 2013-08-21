@@ -9,7 +9,7 @@ CREATE TABLE User
     gender VARCHAR(6),
     age INT,
     password CHAR(65),
-    PRIMARY KEY (id)
+    PRIMARY KEY (id,email,username)
 );
 
 DROP TABLE IF EXISTS Diary;

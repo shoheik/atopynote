@@ -13,10 +13,11 @@ sub top {
   my $self = shift;
   my $session = Plack::Session->new( $self->req->env );
   my $verified = $session->get('verified');
+  print Dumper $verified;
   if (defined $verified) {
       # session is ok 
       # TODO this should be integreated to main Mojo view
-      $self->redirect_to('/index.html');
+      $self->render('index');
   } else {
       # no session 
       $self->redirect_to('/top.html');
@@ -55,11 +56,32 @@ sub confirm_registry {
 
 sub login {
     my $self = shift;
+    my $session = Plack::Session->new( $self->req->env );
     my $data;
     $data->{id} = $self->param('id');
     $data->{password} = $self->param('password');
-    my $result = $self->model->login($data);
+    my $result = $self->model->login($session, $data);
+    if ($result eq "ok") {
+        #$self->req->env->{'psgix.session.options'}->{change_id}++;
+        $session->set('verified', 1);
+        print Dumper $self->req;
+    }
     $self->render(text => $result );
+}
+
+sub logoff {
+    my $self = shift;
+    my $session = Plack::Session->new( $self->req->env );
+    $session->expire;
+    $self->redirect_to('/top.html');
+}
+
+sub validate_user {
+    my $self = shift;
+    my $user = $self->param('fieldValue');
+    print Dumper $user;
+    my $result = $self->model->validate_user($user);
+    $self->render(json => ["username", $result] );
 }
 
 

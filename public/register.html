@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atopy Note</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/lib/jquery/jquery-1.10.2.min.js"></script>
     <script src="lib/jQuery-Validation-Engine/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
     <script src="lib/jQuery-Validation-Engine/js/jquery.validationEngine-ja.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="lib/jQuery-Validation-Engine/css/validationEngine.jquery.css" type="text/css"/>
@@ -54,6 +54,11 @@
                           <div class="pure-control-group">
                               <label for="id">ID(Eメールアドレス)</label>
                               <input id="id" type="text" class="validate[required,custom[email]]" name="id" placeholder="email@address">
+                          </div>
+
+                          <div class="pure-control-group">
+                              <label for="username">ユーザ名</label>
+                              <input id="username" type="text" class="validate[required,custom[onlyLetterNumber],maxSize[20],ajax[ajaxNameCall]]" name="username">
                           </div>
                   
                           <div class="pure-control-group">
