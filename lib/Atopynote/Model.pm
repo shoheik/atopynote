@@ -5,8 +5,6 @@ use FindBin qw($Bin);
 use Atopynote::DB;
 use Atopynote::DB::Schema;
 use Digest::SHA qw(sha256_hex);
-use utf8;
-use Encode;
 use Cache::Memcached::Fast;
 use TheSchwartz;
 

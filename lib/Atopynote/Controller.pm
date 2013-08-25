@@ -4,6 +4,7 @@ use warnings;
 use Mojo::Base 'Mojolicious::Controller';
 use Data::Dumper;
 use Plack::Session;
+use utf8;
 
 # Access to '/'. 
 # Check session
@@ -16,7 +17,7 @@ sub top {
   print Dumper $verified;
   if (defined $verified) {
       # session is ok 
-      # TODO this should be integreated to main Mojo view
+      $self->stash( uid => $verified );
       $self->render('index');
   } else {
       # no session 
@@ -63,9 +64,8 @@ sub login {
     $data->{password} = $self->param('password');
     my $result = $self->model->login($session, $data);
     if ($result eq "ok") {
-        #$self->req->env->{'psgix.session.options'}->{change_id}++;
-        $session->set('verified', 1);
-        print Dumper $self->req;
+        # TODO $self->req->env->{'psgix.session.options'}->{change_id}++;
+        $session->set('verified', $self->param('id'));
     }
     $self->render(text => $result );
 }
@@ -84,6 +84,12 @@ sub validate_user {
     my $result = $self->model->validate_user($user);
     $self->render(json => ["username", $result] );
 }
+
+sub form_meal {
+    my $self = shift;
+    $self->render(json => $self->model->config->{meal});
+}
+
 
 
 1;

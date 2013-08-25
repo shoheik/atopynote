@@ -8,57 +8,81 @@
 <form class="pure-form">
 
     <fieldset>
-        <legend><div class='item'>調子(1:悪 5:良)</div></legend>
-    <label for="option-two" class="pure-radio">1
-        <input id="option-two" type="radio" name="optionsRadios" value="option1" checked>
-    </label>
+        <legend><div class='item'>日時</div></legend>
+        <div id="date"></div>
+    </fieldset>
 
-    <label for="option-three" class="pure-radio">2
-        <input id="option-three" type="radio" name="optionsRadios" value="option2">
-    </label>
+    <fieldset>
+        <legend><div class='item'>調子 (1:悪 5:良)</div></legend>
+        <label for="feeling1" class="pure-radio">1&nbsp;<input id="feeling1" type="radio" name="feeling" value="1" ></label>
+        <label for="feeling2" class="pure-radio">2&nbsp;<input id="feeling2" type="radio" name="feeling" value="2" ></label>
+        <label for="feeling3" class="pure-radio">3&nbsp;<input id="feeling3" type="radio" name="feeling" value="3" checked></label>
+        <label for="feeling4" class="pure-radio">4&nbsp;<input id="feeling4" type="radio" name="feeling" value="4" ></label>
+        <label for="feeling5" class="pure-radio">5&nbsp;<input id="feeling5" type="radio" name="feeling" value="5" ></label>
+    </fieldset>
 
-    <label for="option-three" class="pure-radio">3
-        <input id="option-three" type="radio" name="optionsRadios" value="option2">
-    </label>
+    <fieldset>
+        <legend><div class='item'>かゆみ (1:弱 5:強)</div></legend>
+        <label for="itch1" class="pure-radio">1&nbsp;<input id="itch1" type="radio" name="itch" value="1" ></label>
+        <label for="itch2" class="pure-radio">2&nbsp;<input id="itch2" type="radio" name="itch" value="2" ></label>
+        <label for="itch3" class="pure-radio">3&nbsp;<input id="itch3" type="radio" name="itch" value="3" checked></label>
+        <label for="itch4" class="pure-radio">4&nbsp;<input id="itch4" type="radio" name="itch" value="4" ></label>
+        <label for="itch5" class="pure-radio">5&nbsp;<input id="itch5" type="radio" name="itch" value="5" ></label>
+    </fieldset>
 
-    <label for="option-three" class="pure-radio">4
-        <input id="option-three" type="radio" name="optionsRadios" value="option2">
-    </label>
-
-    <label for="option-three" class="pure-radio">5
-        <input id="option-three" type="radio" name="optionsRadios" value="option2">
-    </label>
+    <fieldset>
+        <legend><div class='item'>ストレス (1:弱 5:強)</div></legend>
+        <label for="stress1" class="pure-radio">1&nbsp;<input id="stress1" type="radio" name="stress" value="1" ></label>
+        <label for="stress2" class="pure-radio">2&nbsp;<input id="stress2" type="radio" name="stress" value="2" ></label>
+        <label for="stress3" class="pure-radio">3&nbsp;<input id="stress3" type="radio" name="stress" value="3" checked></label>
+        <label for="stress4" class="pure-radio">4&nbsp;<input id="stress4" type="radio" name="stress" value="4" ></label>
+        <label for="stress5" class="pure-radio">5&nbsp;<input id="stress5" type="radio" name="stress" value="5" ></label>
     </fieldset>
     
     <fieldset>
-        <legend><div class='item'>かゆみ(1:悪 5:良)</div></legend>
-    <label for="option-two" class="pure-radio">1
-        <input id="option-two" type="radio" name="optionsRadios" value="option1" checked>
-    </label>
+        <legend><div class='item'>便 (0:してない 1:ゆるめ 5:かため)</div></legend>
+        <label for="bowels0" class="pure-radio">0&nbsp;<input id="bowels0" type="radio" name="bowels" value="0" ></label>
+        <label for="bowels1" class="pure-radio">1&nbsp;<input id="bowels1" type="radio" name="bowels" value="1" ></label>
+        <label for="bowels2" class="pure-radio">2&nbsp;<input id="bowels2" type="radio" name="bowels" value="2" ></label>
+        <label for="bowels3" class="pure-radio">3&nbsp;<input id="bowels3" type="radio" name="bowels" value="3" checked></label>
+        <label for="bowels4" class="pure-radio">4&nbsp;<input id="bowels4" type="radio" name="bowels" value="4" ></label>
+        <label for="bowels5" class="pure-radio">5&nbsp;<input id="bowels5" type="radio" name="bowels" value="5" ></label>
+    </fieldset>
 
-    <label for="option-three" class="pure-radio">2
-        <input id="option-three" type="radio" name="optionsRadios" value="option2">
-    </label>
+    <fieldset>
+        <legend><div class='item'>運動 (0:してない 5:激しい)</div></legend>
+        <label for="exercise0" class="pure-radio">0&nbsp;<input id="exercise0" type="radio" name="exercise" value="0" ></label>
+        <label for="exercise1" class="pure-radio">1&nbsp;<input id="exercise1" type="radio" name="exercise" value="1" ></label>
+        <label for="exercise2" class="pure-radio">2&nbsp;<input id="exercise2" type="radio" name="exercise" value="2" ></label>
+        <label for="exercise3" class="pure-radio">3&nbsp;<input id="exercise3" type="radio" name="exercise" value="3" checked></label>
+        <label for="exercise4" class="pure-radio">4&nbsp;<input id="exercise4" type="radio" name="exercise" value="4" ></label>
+        <label for="exercise5" class="pure-radio">5&nbsp;<input id="exercise5" type="radio" name="exercise" value="5" ></label>
+    </fieldset>
 
-    <label for="option-three" class="pure-radio">3
-        <input id="option-three" type="radio" name="optionsRadios" value="option2">
-    </label>
+    <fieldset>
+        <legend><div class='item'>睡眠時間</div></legend>
+        <select id="sleep">
+            <option>1</option><option>1.5</option>
+            <option>2</option><option>2.5</option>
+            <option>3</option><option>3.5</option>
+            <option>4</option><option>4.5</option>
+            <option>5</option><option>5.5</option>
+            <option>6</option><option>6.5</option>
+            <option selected >7</option><option>7.5</option>
+            <option>8</option><option>8.5</option>
+            <option>9</option><option>9.5</option>
+            <option>10</option><option>10.5</option>
+            <option>11</option><option>11.5</option>
+            <option>12</option>
+        </select> 時間
+    </fieldset>
 
-    <label for="option-three" class="pure-radio">4
-        <input id="option-three" type="radio" name="optionsRadios" value="option2">
-    </label>
-
-    <label for="option-three" class="pure-radio">5
-        <input id="option-three" type="radio" name="optionsRadios" value="option2">
-    </label>
-</fieldset>
 </form>
 
 
 <form class="pure-form">
 
-    <h2><%= date %></h2>
-    <br>
+    <!--
     <input type="range" class="form_range topcoat-range-input" id="feeling" value="3" min="1" max="5" />
     <label for="feeling"><span class="range_value" id="range_feeling">3</span> 調子(1:悪 5:良)</label>
     <br>
@@ -76,6 +100,7 @@
     <br>
     <input class="form_range topcoat-range-input" type="range" name="exercise" id="exercise" value="3" min="0" max="5" /> 
     <label for="exercise"><span class="range_value" id="range_exercise">3</span> 運動(0:してない 5:激しい)</label>
+    -->
 
     <hr>
     <fieldset>
@@ -95,10 +120,6 @@
     </fieldset>
     <hr>
 
-    <fieldset>
-        <legend>日時</legend>
-        <div id="date"></div>
-    </fieldset>
 
     <table border=1>
       <tr> 
