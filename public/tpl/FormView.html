@@ -1,4 +1,60 @@
-<h1>記録する</h1>
+<div id="title">
+    <span class="icon"><i class="icon-edit"></i></span>日々の体調と食事を記録しましょう
+</div>
+
+<div id="memo">
+
+
+<form class="pure-form">
+
+    <fieldset>
+        <legend><div class='item'>調子(1:悪 5:良)</div></legend>
+    <label for="option-two" class="pure-radio">1
+        <input id="option-two" type="radio" name="optionsRadios" value="option1" checked>
+    </label>
+
+    <label for="option-three" class="pure-radio">2
+        <input id="option-three" type="radio" name="optionsRadios" value="option2">
+    </label>
+
+    <label for="option-three" class="pure-radio">3
+        <input id="option-three" type="radio" name="optionsRadios" value="option2">
+    </label>
+
+    <label for="option-three" class="pure-radio">4
+        <input id="option-three" type="radio" name="optionsRadios" value="option2">
+    </label>
+
+    <label for="option-three" class="pure-radio">5
+        <input id="option-three" type="radio" name="optionsRadios" value="option2">
+    </label>
+    </fieldset>
+    
+    <fieldset>
+        <legend><div class='item'>かゆみ(1:悪 5:良)</div></legend>
+    <label for="option-two" class="pure-radio">1
+        <input id="option-two" type="radio" name="optionsRadios" value="option1" checked>
+    </label>
+
+    <label for="option-three" class="pure-radio">2
+        <input id="option-three" type="radio" name="optionsRadios" value="option2">
+    </label>
+
+    <label for="option-three" class="pure-radio">3
+        <input id="option-three" type="radio" name="optionsRadios" value="option2">
+    </label>
+
+    <label for="option-three" class="pure-radio">4
+        <input id="option-three" type="radio" name="optionsRadios" value="option2">
+    </label>
+
+    <label for="option-three" class="pure-radio">5
+        <input id="option-three" type="radio" name="optionsRadios" value="option2">
+    </label>
+</fieldset>
+</form>
+
+
 <form class="pure-form">
 
     <h2><%= date %></h2>
@@ -22,6 +78,27 @@
     <label for="exercise"><span class="range_value" id="range_exercise">3</span> 運動(0:してない 5:激しい)</label>
 
     <hr>
+    <fieldset>
+    <legend>食事</legend>
+    <div id="checkbox_view">
+           <label for="rice" class="pure-checkbox"><input type="checkbox" name="food"  id="rice"  />お米</label>
+           <label for="bread" class="pure-checkbox"><input type="checkbox" name="food"  id="bread"  />パン</label>
+           <label for="poteto" class="pure-checkbox"><input type="checkbox" name="food"  id="poteto"  />芋類</label>
+           <label for="lite-vege" class="pure-checkbox"><input type="checkbox" name="food" id="lite-vege"  />淡色野菜</label>
+           <label for="dark-vege" class="pure-checkbox"><input type="checkbox" name="food" id="dark-vege" />緑黄色野菜</label>
+           <label for="milk" class="pure-checkbox"><input type="checkbox" name="food"  id="milk"  />牛乳製品</label>
+           <label for="egg" class="pure-checkbox"><input type="checkbox" name="food" id="egg" />卵</label>
+           <label for="soy" class="pure-checkbox"><input type="checkbox" name="food"  id="soy"  />大豆製品</label>
+           <label for="seaweed_mushroom" class="pure-checkbox"><input type="checkbox" name="food" id="seaweed_mushroom" />海藻・キノコ類</label>
+           <label for="seed" class="pure-checkbox"><input type="checkbox" name="food"  id="seed"  />種子類(ごま等）</label>
+    </div>
+    </fieldset>
+    <hr>
+
+    <fieldset>
+        <legend>日時</legend>
+        <div id="date"></div>
+    </fieldset>
 
     <table border=1>
       <tr> 
@@ -167,7 +244,6 @@
 
 
 </div>
-
-
+</div>  
 
 

@@ -3,11 +3,14 @@ app.views.FormView = Backbone.View.extend({
     initialize: function () {
         this.searchResults = new app.models.EmployeeCollection();
         this.searchresultsView = new app.views.EmployeeListView({model: this.searchResults});
+        this.dates = new app.models.DateCollection();
+        this.dateView = new app.views.DateView({ collection: this.dates }); 
         //_.bindAll(this, 'changeRange');
     },
 
     render: function () {
         this.$el.html(this.template(this.model.attributes));
+        this.$el.find('#date').replaceWith(this.dateView.el); // template migth be better but it's ok
         return this;
     },
 
