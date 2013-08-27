@@ -27,7 +27,6 @@ app.models.FormModel = Backbone.Model.extend({
 
 app.models.meal = Backbone.Model.extend({
     initialize:function () {
-        //
     },
 
     sync: function(method, model, options) {

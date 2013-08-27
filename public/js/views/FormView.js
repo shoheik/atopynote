@@ -5,13 +5,44 @@ app.views.FormView = Backbone.View.extend({
         this.searchresultsView = new app.views.EmployeeListView({model: this.searchResults});
         this.dates = new app.models.DateCollection();
         this.dateView = new app.views.DateView({ collection: this.dates }); 
-        //_.bindAll(this, 'changeRange');
+        this.meal_model = new app.models.meal();
+        //console.log(meal_model);
+        //var html = meal_model.get('html');
+        //this.model.set({meal: html});
+        //console.log(this.model);
     },
 
     render: function () {
-        this.$el.html(this.template(this.model.attributes));
-        this.$el.find('#date').replaceWith(this.dateView.el); // template migth be better but it's ok
-        return this;
+
+        var self = this;
+        this.meal_model.fetch({
+                success: function(data){
+                    var meal = data.get('meal');
+                    var meal_html = "";
+                    for (var type in meal){
+                        //console.log(type);
+                        var tpl = _.template("<label for='<%= item %>' class='pure-checkbox'><input type='checkbox' name='food' id='<%= item %>'/><%= label %></label>");
+                        var html = "";
+                        for (var item in meal[type]) {
+                            html += tpl({ item: item, label:meal[type][item] }); 
+                            //console.log(item);
+                            //console.log(meal[type][item]);
+                        }        
+                        var tmpl = _.template("<fieldset><legend><div class='item'><%= type %></div></legend><div id='checkbox_view'><%= content %></div></fieldset>");
+                        meal_html += tmpl({type: type, content: html});
+                    }            
+                    console.log(meal_html);
+                    self.model.set({meal: meal_html});
+                    self.$el.html(self.template(self.model.attributes));
+                    self.$el.find('#date').replaceWith(self.dateView.el); // template migth be better but it's ok
+                    return self;
+
+                }                
+        });            
+
+        //this.$el.html(this.template(this.model.attributes));
+        //this.$el.find('#date').replaceWith(this.dateView.el); // template migth be better but it's ok
+        //return this;
     },
 
     events: {
