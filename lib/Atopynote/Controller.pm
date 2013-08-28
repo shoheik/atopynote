@@ -25,10 +25,11 @@ sub top {
   }
 }
 
-sub submit {
+sub form_submit {
     my $self = shift;
     my $data = $self->req->json;
-    $self->model->add_page($self->req->json);
+    print Dumper $data;
+    #$self->model->add_page($self->req->json);
     $self->render( text => 'I got this');
 }
 

@@ -2,6 +2,7 @@ app.views.DateView = Backbone.View.extend({
 
     tagName: 'select', 
     id: 'date',
+    attributes: {name: 'date_selection'},
 
     initialize: function () {
         this.render();

@@ -1,6 +1,6 @@
 app.models.FormModel = Backbone.Model.extend({
 
-    url: "http://127.0.0.1:3000/submit",
+    url: "http://127.0.0.1:3000/form/submit",
 
     initialize:function () {
         var dd = new Date();
@@ -31,30 +31,21 @@ app.models.meal = Backbone.Model.extend({
 
     sync: function(method, model, options) {
         if (method === "read") {
-            //app.adapters.meal.findByMeal(this.get('mealType')).done(function (data) {
-            //    options.success({breakfirst : data});
-            //});
             app.adapters.meal.getMeal().done(function (data) {
                 //console.log(data);
                 var compiled_data = {};
-                for (i in data.mealType){
-                    //console.log(data.mealType[i]);
-                    compiled_data[data.mealType[i]] = new Object();
-                    for( j in data[data.mealType[i]]){
-                        //console.log(data[data.mealType[i]][j]);
-                        //console.log(data.mapping[data[data.mealType[i]][j]]);
-                        var abr = data[data.mealType[i]][j];
-                        var word = data.mapping[data[data.mealType[i]][j]];
-                        compiled_data[data.mealType[i]][abr] = word;
+                for (var type in data.mealType){
+                    //console.log(data[type]);
+                    compiled_data[type] = new Object();
+                    for( var j in data[type]){
+                        //console.log(data[type][j]);
+                        //console.log(data.mapping[data[type][j]]);
+                        var abr = data[type][j];
+                        var word = data.mapping[data[type][j]];
+                        compiled_data[type][abr] = word;
                     }
                 }
-                options.success({meal : compiled_data});
-                //console.log(compiled_data);
-                //for (i in data['breakfirst']){
-                //    console.log(data.breakfirst[i]);
-                //}
-
-                //options.success({breakfirst : data});
+                options.success({meal : compiled_data, type_mapping: data.mealType});
             });
         }
     }
