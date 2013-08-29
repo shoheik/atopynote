@@ -118,26 +118,41 @@ sub add_page {
     # prepare {breakfirst,lunch,dinner}_id, 
     my %meal_id;
     for my $type (qw/breakfirst lunch dinner/){
-        # prepare query
         my $query;
-        # if nothing is submitted
-        if (scalar @{ $data->{$type} } == 0 ){
-            for my $col ( @{ $self->schema->{Meal}->{columns} }){
-                next if ($col eq "id");
-                $query->{$col} = 0;
-            }
-        }else {
-            for my $col ( @{ $self->schema->{Meal}->{columns} }){
-                next if ($col eq "id");
-                for my $stuff (@{ $data->{$type} }){
-                    if ($stuff eq $col) {
-                        $query->{$col} = 1;
-                    }else {
-                        $query->{$col} = 0;
-                    }
-                }
+
+        # init as 0
+        for my $col ( @{ $self->schema->{Meal}->{columns} }){
+            next if ($col eq "id");
+            $query->{$col} = 0;
+        }
+
+        for my $input (@{ $data->{'meal'} }){
+            if ($type eq $input->{name}){
+                my $food = $input->{value};
+                $query->{$food} = 1;
             }
         }
+        print Dumper $query;
+            
+    #    # prepare query
+    #    # if nothing is submitted
+    #    if (scalar @{ $data->{$type} } == 0 ){
+    #        for my $col ( @{ $self->schema->{Meal}->{columns} }){
+    #            next if ($col eq "id");
+    #            $query->{$col} = 0;
+    #        }
+    #    }else {
+    #        for my $col ( @{ $self->schema->{Meal}->{columns} }){
+    #            next if ($col eq "id");
+    #            for my $stuff (@{ $data->{$type} }){
+    #                if ($stuff eq $col) {
+    #                    $query->{$col} = 1;
+    #                }else {
+    #                    $query->{$col} = 0;
+    #                }
+    #            }
+    #        }
+    #    }
 
         print Dumper $query;
         my $row = $self->db->single('Meal', $query);
@@ -152,80 +167,64 @@ sub add_page {
             }
         }
     }
-        
-    my $row = $self->db->single('Page', 
-        {
-            bowels => $data->{bowels},
-            stress => $data->{stress},
-            feeling => $data->{feeling},
-            itch => $data->{itch},
-            sleep => $data->{sleep},
-            exercise => $data->{exercise},
-            breakfirst_id => $meal_id{breakfirst},
-            lunch_id => $meal_id{lunch},
-            dinner_id => $meal_id{dinner}
-        }
-    );
-
+    print Dumper $data;
+    my $query;
+    for my $input (@{ $data->{meal} }){
+        next if ($input->{name} eq 'lunch' || $input->{name} eq 'breakfirst' || $input->{name} eq 'dinner');
+        $query->{$input->{name}} = $input->{value};
+    }
+    for my $type (qw/breakfirst lunch dinner/){
+        $query->{$type."_id"} = $meal_id{$type};
+    }
+    
+    print Dumper $query;
+    my $row = $self->db->single('Page', $query); 
     my $page_id;
     if(defined $row) {
         $page_id = $row->get_column('id');
     }else {
-        my $r = $self->db->create(
-            'Page', 
-            {
-                bowels => $data->{bowels},
-                stress => $data->{stress},
-                feeling => $data->{feeling},
-                itch => $data->{itch},
-                sleep => $data->{sleep},
-                exercise => $data->{exercise},
-                breakfirst_id => $meal_id{breakfirst},
-                lunch_id => $meal_id{lunch},
-                dinner_id => $meal_id{dinner}
-            }
-        );
+        my $r = $self->db->create('Page', $query);
         $page_id = $r->get_column('id');
     }
 
-    # TODO 
-    my $user_id = 1;
+    ## TODO 
+    #my $user_id = 1;
 
-    # One page for One day
-    my $d_row = $self->db->single(
-        'Diary', 
-        {
-            date => $data->{date},
-            user_id => $user_id, 
-        }
-    );
-    if (defined $d_row) {
-        my $r = $self->db->update(
-            'Diary',
-            {
-                page_id => $page_id,
-            },
-            {
-                date => $data->{date},
-                user_id => $user_id, 
-            }
-        );
-        unless(defined $r) {
-            # TODO error handling
-        }
-    }else{
-        my $r = $self->db->create(
-            'Diary', 
-            {
-                date => $data->{date},
-                page_id => $page_id,
-                user_id => $user_id, 
-            }
-        );
-        unless (defined $r) {
-            #TODO error handling 
-        }
-    }
+    ## One page for One day
+    #my $d_row = $self->db->single(
+    #    'Diary', 
+    #    {
+    #        date => $data->{date},
+    #        user_id => $user_id, 
+    #    }
+    #);
+    #if (defined $d_row) {
+    #    my $r = $self->db->update(
+    #        'Diary',
+    #        {
+    #            page_id => $page_id,
+    #        },
+    #        {
+    #            date => $data->{date},
+    #            user_id => $user_id, 
+    #        }
+    #    );
+    #    unless(defined $r) {
+    #        # TODO error handling
+    #    }
+    #}else{
+    #    my $r = $self->db->create(
+    #        'Diary', 
+    #        {
+    #            date => $data->{date},
+    #            page_id => $page_id,
+    #            user_id => $user_id, 
+    #        }
+    #    );
+    #    unless (defined $r) {
+    #        #TODO error handling 
+    #    }
+    #}
 }
 
 sub confirm_registry {

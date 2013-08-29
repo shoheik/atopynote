@@ -51,7 +51,8 @@ install_table Meal => schema {
         egg
         dairy
         soy
-        seaweed_mushroom
+        seaweed
+        mushroom
         seed
         chiken
         beef
@@ -59,10 +60,28 @@ install_table Meal => schema {
         fish
         beer
         wine
+        jp_sake
+        soju
+        wiskey
+        voka
+        awamori
+        brandy
+        jin
+        liqueur
+        cocktail
+        fruit_juice
+        coke
+        coffee
+        tea
         other_alcohol
         fried
         fruit
         snack
+        jp_sweets
+        chocolate
+        cake
+        icecream
+        pudding
     /;
 };
 

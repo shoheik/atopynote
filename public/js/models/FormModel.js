@@ -34,7 +34,13 @@ app.models.meal = Backbone.Model.extend({
             app.adapters.meal.getMeal().done(function (data) {
                 //console.log(data);
                 var compiled_data = {};
-                for (var type in data.mealType){
+                var type_mapping = new Array();
+                for (var i in data.mealType){
+                    var type;
+                    for (var meal_obj in data.mealType[i]){
+                        type = meal_obj;
+                    }
+                    //console.log(type);
                     //console.log(data[type]);
                     compiled_data[type] = new Object();
                     for( var j in data[type]){

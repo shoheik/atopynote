@@ -23,9 +23,17 @@ app.views.FormView = Backbone.View.extend({
                             //console.log(item);
                             //console.log(meal[type][item]);
                         }        
-                        var type_mapping = data.get('type_mapping');
+                        var type_mappings = data.get('type_mapping');
+                        var type_mapping;
+                        for (var i in type_mappings){
+                            for (var j in type_mappings[i]){
+                                if ( j === type ){
+                                    type_mapping = type_mappings[i][j];
+                                }
+                            }
+                        }
                         var tmpl = _.template("<fieldset><legend><div class='item'><%= type_mapping %></div></legend><div id='checkbox_view'><%= content %></div></fieldset>");
-                        meal_html += tmpl({type: type, content: html, type_mapping: type_mapping[type]});
+                        meal_html += tmpl({type: type, content: html, type_mapping: type_mapping});
                     }            
                     //console.log(meal_html);
                     //self.model.set({meal: meal_html});

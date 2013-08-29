@@ -18,9 +18,8 @@ app.models.DateCollection = Backbone.Collection.extend({
         var addSec = addDays * 86400000; //日数 * 1日のミリ秒数
         var targetSec = baseSec + addSec;
         dt.setTime(targetSec);
-        return dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + dt.getDate();
+        return dt.getFullYear() + '-' + ('00' + (dt.getMonth() + 1)).slice(-2) + '-' + ('00' + dt.getDate()).slice(-2);
     }
-
 
 });
 
