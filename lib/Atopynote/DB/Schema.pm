@@ -35,7 +35,9 @@ install_table Page => schema {
         exercise
         breakfirst_id
         lunch_id
+        break_id
         dinner_id
+        drink_id
     /;
 };
 
@@ -73,7 +75,6 @@ install_table Meal => schema {
         coke
         coffee
         tea
-        other_alcohol
         fried
         fruit
         snack

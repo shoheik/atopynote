@@ -40,7 +40,9 @@ CREATE TABLE Page
     exercise INT,
     breakfirst_id INT,
     lunch_id INT,
+    break_id INT,
     dinner_id INT,
+    drink_id INT,
     PRIMARY KEY(id)
 ) ENGINE=INNODB;;
 

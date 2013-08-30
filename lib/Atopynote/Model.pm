@@ -117,7 +117,7 @@ sub add_page {
 
     # prepare {breakfirst,lunch,dinner}_id, 
     my %meal_id;
-    for my $type (qw/breakfirst lunch dinner/){
+    for my $type (qw/breakfirst lunch break dinner drink/){
         my $query;
 
         # init as 0
@@ -132,7 +132,6 @@ sub add_page {
                 $query->{$food} = 1;
             }
         }
-        print Dumper $query;
             
     #    # prepare query
     #    # if nothing is submitted
@@ -169,11 +168,18 @@ sub add_page {
     }
     print Dumper $data;
     my $query;
+    my $date;
     for my $input (@{ $data->{meal} }){
-        next if ($input->{name} eq 'lunch' || $input->{name} eq 'breakfirst' || $input->{name} eq 'dinner');
+        if ($input->{name} eq 'lunch' || $input->{name} eq 'breakfirst' || $input->{name} eq 'dinner'
+            || $input->{name} eq 'break' || $input->{name} eq 'drink'){
+            next;
+        }elsif ($input->{name} eq 'date'){
+            $date = $input->{value};
+            next;
+        }
         $query->{$input->{name}} = $input->{value};
     }
-    for my $type (qw/breakfirst lunch dinner/){
+    for my $type (qw/breakfirst lunch break dinner drink/){
         $query->{$type."_id"} = $meal_id{$type};
     }
     
@@ -187,44 +193,44 @@ sub add_page {
         $page_id = $r->get_column('id');
     }
 
-    ## TODO 
-    #my $user_id = 1;
+    my $user_id = $data->{uid};
 
     ## One page for One day
-    #my $d_row = $self->db->single(
-    #    'Diary', 
-    #    {
-    #        date => $data->{date},
-    #        user_id => $user_id, 
-    #    }
-    #);
-    #if (defined $d_row) {
-    #    my $r = $self->db->update(
-    #        'Diary',
-    #        {
-    #            page_id => $page_id,
-    #        },
-    #        {
-    #            date => $data->{date},
-    #            user_id => $user_id, 
-    #        }
-    #    );
-    #    unless(defined $r) {
-    #        # TODO error handling
-    #    }
-    #}else{
-    #    my $r = $self->db->create(
-    #        'Diary', 
-    #        {
-    #            date => $data->{date},
-    #            page_id => $page_id,
-    #            user_id => $user_id, 
-    #        }
-    #    );
-    #    unless (defined $r) {
-    #        #TODO error handling 
-    #    }
-    #}
+    my $d_row = $self->db->single(
+        'Diary', 
+        {
+            date => $date,
+            user_id => $user_id, 
+        }
+    );
+    print Dumper $d_row;
+    if (defined $d_row) {
+        my $r = $self->db->update(
+            'Diary',
+            {
+                page_id => $page_id,
+            },
+            {
+                date => $date,
+                user_id => $user_id, 
+            }
+        );
+        unless(defined $r) {
+            # TODO error handling
+        }
+    }else{
+        my $r = $self->db->create(
+            'Diary', 
+            {
+                date => $date,
+                page_id => $page_id,
+                user_id => $user_id, 
+            }
+        );
+        unless (defined $r) {
+            #TODO error handling 
+        }
+    }
 }
 
 sub confirm_registry {
@@ -255,7 +261,7 @@ sub login {
         my $db_pass = $row->get_column('password');
         my $hash = $self->get_password_hash($data->{id}, $data->{password});
         if ($db_pass eq $hash) {
-            return 'ok';
+            return $row->get_column('id');
         }else {
             return 'notok';
         }

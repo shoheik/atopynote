@@ -27,9 +27,7 @@ sub top {
 
 sub form_submit {
     my $self = shift;
-    my $data = $self->req->json;
-    print Dumper $data;
-    #$self->model->add_page($self->req->json);
+    $self->model->add_page($self->req->json);
     $self->render( text => 'I got this');
 }
 
@@ -64,11 +62,13 @@ sub login {
     $data->{id} = $self->param('id');
     $data->{password} = $self->param('password');
     my $result = $self->model->login($session, $data);
-    if ($result eq "ok") {
+    if ($result eq "notok") {
         # TODO $self->req->env->{'psgix.session.options'}->{change_id}++;
-        $session->set('verified', $self->param('id'));
+        $self->render(text => $result );
+    }else{
+        $session->set('verified', $result); # store id attribute in User
+        $self->render(text => 'ok');
     }
-    $self->render(text => $result );
 }
 
 sub logoff {
