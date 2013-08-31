@@ -19,6 +19,7 @@ CREATE TABLE Diary
     date DATE,
     user_id BIGINT,
     page_id BIGINT,
+    memo VARCHAR(256),
     PRIMARY KEY (id, date, user_id),
     INDEX(id),
     FOREIGN KEY(page_id) REFERENCES Page(id)

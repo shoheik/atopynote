@@ -264,8 +264,10 @@ h1 {
 }
 
 /* For Form */
-#memo {
-    padding-left: 15px;
+.category {
+    padding: 15px;
+}
+.white_bg {
     background-color: white;
 }
 
@@ -279,10 +281,12 @@ h1 {
 
 #checkbox_view {
     width: 80%;
+    padding: 15px;
 }
 
 #checkbox_view label{
     display: inline-block;
     width: 100px;
+    font-size: 12px;
 }
 

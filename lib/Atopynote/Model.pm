@@ -169,12 +169,17 @@ sub add_page {
     print Dumper $data;
     my $query;
     my $date;
+    my $memo;
     for my $input (@{ $data->{meal} }){
-        if ($input->{name} eq 'lunch' || $input->{name} eq 'breakfirst' || $input->{name} eq 'dinner'
-            || $input->{name} eq 'break' || $input->{name} eq 'drink'){
+
+        if($input->{name} eq 'memo'){
+            $memo = $input->{value};
             next;
-        }elsif ($input->{name} eq 'date'){
+        } elsif ($input->{name} eq 'date'){
             $date = $input->{value};
+            next;
+        } elsif ($input->{name} eq 'lunch' || $input->{name} eq 'breakfirst' || $input->{name} eq 'dinner'
+            || $input->{name} eq 'break' || $input->{name} eq 'drink'){
             next;
         }
         $query->{$input->{name}} = $input->{value};
@@ -225,6 +230,7 @@ sub add_page {
                 date => $date,
                 page_id => $page_id,
                 user_id => $user_id, 
+                memo => $memo,
             }
         );
         unless (defined $r) {

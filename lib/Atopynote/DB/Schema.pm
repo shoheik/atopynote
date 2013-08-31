@@ -20,6 +20,7 @@ install_table Diary => schema {
         date
         user_id
         page_id
+        memo
     /;
 };
 

@@ -46,7 +46,7 @@
     
         <div class="pure-u-1" id="list">
            <div id="body"></div>
-           <input type="hidden" name="uid" value="<%= $uid %>">
+           <input id="uid" type="hidden" name="uid" value="<%= $uid %>">
         </div>
     </div>
 
