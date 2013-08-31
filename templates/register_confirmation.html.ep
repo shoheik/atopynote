@@ -4,19 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atopy Note</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+    <link rel="stylesheet" href="/css/pure/pure-min.css">
+    <link rel="stylesheet" href="/css/main.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   </head>
-  <style>
-    div#content {
-        padding: 20px;
-    }
-    .pure-button-success {
-        background: rgb(28, 184, 65); /* this is a green */
-        color: white;
-    }
-  </style>
-  
   <script type="text/javascript">
     $(document).ready(function() {
         $('form').submit(function() {
@@ -39,49 +30,50 @@
 
   <body>
     <div id="content">
-        <div class="header">
-            <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
-                <h1><a class="pure-menu-heading" href="/">Atopy Note</a></h1>
-            </div>
+      <div class="pure-g-r">
+        <div class="pure-u-1 header">
+          <div id="head" class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
+            <a class="pure-menu-heading" href="/"><h1>Atopy Note</h1></a>
+            <ul id="topnavi">
+                <li><a href="/top.html">Home</a></li>
+                <li class="pure-menu-selected"><a href="/register.html">Register</a></li>
+                <li><a href="#">Tour</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+          </div>
         </div>
-
         <br><br><br><br>
-        <br><br>
+        <div class="pure-u-1-4"></div>
+        <div class="pure-u-1-2">
+            <form id="register" class="pure-form pure-form-aligned">
+                  <legend>登録確認</legend>
+                  <fieldset>
+                      <div class="pure-control-group">
+                          <label for="id">ID(Eメールアドレス)</label>
+                          <input id="id" type="text" name="id" value="<%= $id %>">
+                      </div>
+              
+                      <div class="pure-control-group">
+                          <label for="onetime_code">確認用コード</label>
+                          <input id="onetime_code" type="text" name="onetime_code">
+                      </div>
 
-        <div class="pure-g-r">
-            <div class="pure-u-1-4"></div>
-            <div class="pure-u-1-2">
-                <form id="register" class="pure-form pure-form-aligned">
-                      <legend>登録確認</legend>
-                      <fieldset>
-                          <div class="pure-control-group">
-                              <label for="id">ID(Eメールアドレス)</label>
-                              <input id="id" type="text" name="id" value="<%= $id %>">
-                          </div>
-                  
-                          <div class="pure-control-group">
-                              <label for="onetime_code">確認用コード</label>
-                              <input id="onetime_code" type="text" name="onetime_code">
-                          </div>
-
-                          <div class="pure-control-group">
-                            <label></label>
-                            <button class="pure-button pure-button-success">送信する</button>
-                            <span id="errmsg"></span>
-                          </div>
-                      </fieldset>
-                  </form>
-
-
-            </div>
-            <div class="pure-u-1-4"></div>
+                      <div class="pure-control-group">
+                        <label></label>
+                        <button class="pure-button pure-button-success">送信する</button>
+                        <span id="errmsg"></span>
+                      </div>
+                  </fieldset>
+              </form>
+        </div>
+        <div class="pure-u-1-4"></div>
+        <div class="pure-u-1">
+          <div id="footer">
+              copyright Atopy Note 2013 all reserved
+          </div>
         </div>
     </div>
-    
-    <hr>
-    <div class="footer">
-        copyright Atopy Note 2013 all reserved
-    </div>
-    
-  </body>
+  </div>
+</body>
 </html>

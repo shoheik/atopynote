@@ -1,5 +1,7 @@
 app.views.FormView = Backbone.View.extend({
 
+    id: 'main_view',
+
     initialize: function () {
         this.searchResults = new app.models.EmployeeCollection();
         this.searchresultsView = new app.views.EmployeeListView({model: this.searchResults});
@@ -61,37 +63,6 @@ app.views.FormView = Backbone.View.extend({
 
         var form = $('form').serializeArray();
         this.model.set({meal: form}); 
-
-        //this.model.set("itch", $('input[name=itch]').val());
-        //this.model.set("feeling", $('input#feeling').val());
-        //this.model.set("stress", $('input#stress').val());
-        //this.model.set("sleep", $('input#sleep').val());
-        //this.model.set("bowels", $('input#bowels').val());
-        //this.model.set("exercise", $('input#exercise').val());
-
-        //var breakfirst = [];
-        //$('td#breakfirst [name="food"]:checked').each(function(){
-        //    breakfirst.push($(this).attr('id'));
-        //});
-
-        //var lunch = [];
-        //$('td#lunch [name="food"]:checked').each(function(){
-        //    lunch.push($(this).attr('id'));
-        //});
-
-        //var dinner = [];
-        //$('td#dinner [name="food"]:checked').each(function(){
-        //    dinner.push($(this).attr('id'));
-        //});
-
-        //this.model.set("breakfirst", breakfirst);
-        //this.model.set("lunch", lunch);
-        //this.model.set("dinner", dinner);
-
-        //console.log(this.model.toJSON());
-
-        //alert('sotp');
-
         this.model.save();
         //this.model.save(null, { success : function(model, res){ 
         //        alert('hello?');

@@ -4,21 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atopy Note</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+    <link rel="stylesheet" href="/css/pure/pure-min.css">
+    <link rel="stylesheet" href="/css/main.css">
     <script src="/lib/jquery/jquery-1.10.2.min.js"></script>
     <script src="lib/jQuery-Validation-Engine/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
     <script src="lib/jQuery-Validation-Engine/js/jquery.validationEngine-ja.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="lib/jQuery-Validation-Engine/css/validationEngine.jquery.css" type="text/css"/>
   </head>
-  <style>
-    div#content {
-        padding: 20px;
-    }
-    .pure-button-success {
-        background: rgb(28, 184, 65); /* this is a green */
-        color: white;
-    }
-  </style>
   
   <script type="text/javascript">
     $(document).ready(function() {
@@ -29,155 +21,157 @@
   <body>
 
     <div id="content">
-        <div class="header">
-            <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
-                <h1><a class="pure-menu-heading" href="/">Atopy Note</a></h1>
-                <ul>
-                    <li class="pure-menu-selected"><a href="#">Home</a></li>
-                    <li><a href="#">Tour</a></li>
-                    <li><a href="#">API</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </div>
+      <div class="pure-g-r">
+        <div class="pure-u-1 header">
+          <div id="head" class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
+            <a class="pure-menu-heading" href="/"><h1>Atopy Note</h1></a>
+            <ul id="topnavi">
+                <li><a href="/top.html">Home</a></li>
+                <li class="pure-menu-selected"><a href="/register.html">Register</a></li>
+                <li><a href="#">Tour</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+          </div>
         </div>
 
-        <br><br><br><br>
-        <br><br>
+        <div id="background">
+          <br><br><br><br>
+          <div class="pure-u-1-4"></div>
+          <div class="pure-u-1-2">
+              <form id="register" class="pure-form pure-form-aligned" action="/register" method="POST">
+                    <legend>ユーザ登録</legend>
+                    <fieldset>
+                        <div class="pure-control-group">
+                            <label for="id">ID(Eメールアドレス)</label>
+                            <input id="id" type="text" class="validate[required,custom[email]]" name="id" placeholder="email@address">
+                        </div>
 
-        <div class="pure-g-r">
-            <div class="pure-u-1-4"></div>
-            <div class="pure-u-1-2">
-                <form id="register" class="pure-form pure-form-aligned" action="/register" method="POST">
-                      <legend>ユーザ登録</legend>
-                      <fieldset>
-                          <div class="pure-control-group">
-                              <label for="id">ID(Eメールアドレス)</label>
-                              <input id="id" type="text" class="validate[required,custom[email]]" name="id" placeholder="email@address">
-                          </div>
+                        <div class="pure-control-group">
+                            <label for="username">ユーザ名</label>
+                            <input id="username" type="text" class="validate[required,custom[onlyLetterNumber],maxSize[20],ajax[ajaxNameCall]]" name="username">
+                        </div>
+                
+                        <div class="pure-control-group">
+                            <label for="password">パスワード</label>
+                            <input id="password" class="validate[required],minSize[6]" type="password" name="password" placeholder="Password">
+                        </div>
 
-                          <div class="pure-control-group">
-                              <label for="username">ユーザ名</label>
-                              <input id="username" type="text" class="validate[required,custom[onlyLetterNumber],maxSize[20],ajax[ajaxNameCall]]" name="username">
-                          </div>
-                  
-                          <div class="pure-control-group">
-                              <label for="password">パスワード</label>
-                              <input id="password" class="validate[required],minSize[6]" type="password" name="password" placeholder="Password">
-                          </div>
+                        <div class="pure-control-group">
+                            <label for="password_confirm">パスワード(確認)</label>
+                            <input id="password_confirm" class="validate[required,equals[password]]" type="password" placeholder="Password">
+                        </div>
 
-                          <div class="pure-control-group">
-                              <label for="password_confirm">パスワード(確認)</label>
-                              <input id="password_confirm" class="validate[required,equals[password]]" type="password" placeholder="Password">
-                          </div>
+                        <div class="pure-control-group">
+                          <label for="gender">性別</label>
+                          <input type="radio" class="validate[required]" name="gender" value="male"> 男性 
+                          <input type="radio" class="validate[required]" name="gender" value="female"> 女性 
+                        </div>
+                
+                        <div class="pure-control-group">
+                            <label for="age">年齢</label>
+                            <select name="age">
+                              <option value="0">0歳</option>
+                              <option value="1">1歳</option>
+                              <option value="2">2歳</option>
+                              <option value="3">3歳</option>
+                              <option value="4">4歳</option>
+                              <option value="5">5歳</option>
+                              <option value="6">6歳</option>
+                              <option value="7">7歳</option>
+                              <option value="8">8歳</option>
+                              <option value="9">9歳</option>
+                              <option value="10">10歳</option>
+                              <option value="11">11歳</option>
+                              <option value="12">12歳</option>
+                              <option value="13">13歳</option>
+                              <option value="14">14歳</option>
+                              <option value="15">15歳</option>
+                              <option value="16">16歳</option>
+                              <option value="17">17歳</option>
+                              <option value="18">18歳</option>
+                              <option value="19">19歳</option>
+                              <option value="20" selected>20歳</option>
+                              <option value="21">21歳</option>
+                              <option value="22">22歳</option>
+                              <option value="23">23歳</option>
+                              <option value="24">24歳</option>
+                              <option value="25">25歳</option>
+                              <option value="26">26歳</option>
+                              <option value="27">27歳</option>
+                              <option value="28">28歳</option>
+                              <option value="29">29歳</option>
+                              <option value="30">30歳</option>
+                              <option value="31">31歳</option>
+                              <option value="32">32歳</option>
+                              <option value="33">33歳</option>
+                              <option value="34">34歳</option>
+                              <option value="35">35歳</option>
+                              <option value="36">36歳</option>
+                              <option value="37">37歳</option>
+                              <option value="38">38歳</option>
+                              <option value="39">39歳</option>
+                              <option value="40">40歳</option>
+                              <option value="41">41歳</option>
+                              <option value="42">42歳</option>
+                              <option value="43">43歳</option>
+                              <option value="44">44歳</option>
+                              <option value="45">45歳</option>
+                              <option value="46">46歳</option>
+                              <option value="47">47歳</option>
+                              <option value="48">48歳</option>
+                              <option value="49">49歳</option>
+                              <option value="50">50歳</option>
+                              <option value="51">51歳</option>
+                              <option value="52">52歳</option>
+                              <option value="53">53歳</option>
+                              <option value="54">54歳</option>
+                              <option value="55">55歳</option>
+                              <option value="56">56歳</option>
+                              <option value="57">57歳</option>
+                              <option value="58">58歳</option>
+                              <option value="59">59歳</option>
+                              <option value="60">60歳</option>
+                              <option value="61">61歳</option>
+                              <option value="62">62歳</option>
+                              <option value="63">63歳</option>
+                              <option value="64">64歳</option>
+                              <option value="65">65歳</option>
+                              <option value="65over">65歳以上</option>
+                            </select>
+                        </div>
 
-                          <div class="pure-control-group">
-                            <label for="gender">性別</label>
-                            <input type="radio" class="validate[required]" name="gender" value="male"> 男性 
-                            <input type="radio" class="validate[required]" name="gender" value="female"> 女性 
-                          </div>
-                  
-                          <div class="pure-control-group">
-                              <label for="age">年齢</label>
-                              <select name="age">
-                                <option value="0">0歳</option>
-                                <option value="1">1歳</option>
-                                <option value="2">2歳</option>
-                                <option value="3">3歳</option>
-                                <option value="4">4歳</option>
-                                <option value="5">5歳</option>
-                                <option value="6">6歳</option>
-                                <option value="7">7歳</option>
-                                <option value="8">8歳</option>
-                                <option value="9">9歳</option>
-                                <option value="10">10歳</option>
-                                <option value="11">11歳</option>
-                                <option value="12">12歳</option>
-                                <option value="13">13歳</option>
-                                <option value="14">14歳</option>
-                                <option value="15">15歳</option>
-                                <option value="16">16歳</option>
-                                <option value="17">17歳</option>
-                                <option value="18">18歳</option>
-                                <option value="19">19歳</option>
-                                <option value="20" selected>20歳</option>
-                                <option value="21">21歳</option>
-                                <option value="22">22歳</option>
-                                <option value="23">23歳</option>
-                                <option value="24">24歳</option>
-                                <option value="25">25歳</option>
-                                <option value="26">26歳</option>
-                                <option value="27">27歳</option>
-                                <option value="28">28歳</option>
-                                <option value="29">29歳</option>
-                                <option value="30">30歳</option>
-                                <option value="31">31歳</option>
-                                <option value="32">32歳</option>
-                                <option value="33">33歳</option>
-                                <option value="34">34歳</option>
-                                <option value="35">35歳</option>
-                                <option value="36">36歳</option>
-                                <option value="37">37歳</option>
-                                <option value="38">38歳</option>
-                                <option value="39">39歳</option>
-                                <option value="40">40歳</option>
-                                <option value="41">41歳</option>
-                                <option value="42">42歳</option>
-                                <option value="43">43歳</option>
-                                <option value="44">44歳</option>
-                                <option value="45">45歳</option>
-                                <option value="46">46歳</option>
-                                <option value="47">47歳</option>
-                                <option value="48">48歳</option>
-                                <option value="49">49歳</option>
-                                <option value="50">50歳</option>
-                                <option value="51">51歳</option>
-                                <option value="52">52歳</option>
-                                <option value="53">53歳</option>
-                                <option value="54">54歳</option>
-                                <option value="55">55歳</option>
-                                <option value="56">56歳</option>
-                                <option value="57">57歳</option>
-                                <option value="58">58歳</option>
-                                <option value="59">59歳</option>
-                                <option value="60">60歳</option>
-                                <option value="61">61歳</option>
-                                <option value="62">62歳</option>
-                                <option value="63">63歳</option>
-                                <option value="64">64歳</option>
-                                <option value="65">65歳</option>
-                                <option value="65over">65歳以上</option>
-                              </select>
-                          </div>
+                        <div class="pure-control-group">
 
-                          <div class="pure-control-group">
+                          <blockquote>
+	                      	Checking this box indicates that you accept terms of use. If you do not accept these terms, do not use this website : 
+                          </blockquote>
+	                      <label>
+	                      	<span class="checkbox">I accept terms of use : </span>
+	                      </label>
+	                      	<input class="validate[required] checkbox" type="checkbox" id="agree" name="agree"/>
 
-                            <blockquote>
-			                	Checking this box indicates that you accept terms of use. If you do not accept these terms, do not use this website : 
-                            </blockquote>
-			                <label>
-			                	<span class="checkbox">I accept terms of use : </span>
-			                </label>
-			                	<input class="validate[required] checkbox" type="checkbox" id="agree" name="agree"/>
-
-                          </div>
-                          <div class="pure-control-group">
-                            <label></label>
-                            <input type="submit" class="pure-button pure-button-success" value="登録する">
-                          </div>
-                      </fieldset>
-                  </form>
+                        </div>
+                        <div class="pure-control-group">
+                          <label></label>
+                          <input type="submit" class="pure-button pure-button-success" value="登録する">
+                        </div>
+                    </fieldset>
+                </form>
 
 
+          </div>
+          <div class="pure-u-1-4"></div>
+          <div class="pure-u-1">
+            <br>
+            <div id="footer">
+            copyright Atopy Note 2013 all reserved
             </div>
-            <div class="pure-u-1-4"></div>
+          </div>
         </div>
+      </div>
     </div>
     
-    <hr>
-    <div class="footer">
-        copyright Atopy Note 2013 all reserved
-    </div>
     
   </body>
 </html>
