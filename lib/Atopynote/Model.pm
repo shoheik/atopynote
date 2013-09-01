@@ -63,11 +63,11 @@ sub _build_qclient {
     my $self = shift;
     return TheSchwartz->new(
         databases => [{
-            #dsn  => 'dbi:mysql:TheSchwartz',
+            #dsn  => 'dbi:mysql:jobq',
             # TODO TheSchartz DB is the same as main one
-            dsn => $self->config->{db_dsn},
-            user =>  $self->config->{db_username},
-            pass =>  $self->config->{password},
+            dsn => $self->config->{q_db_dsn},
+            user =>  $self->config->{q_db_username},
+            pass =>  $self->config->{q_password},
         }],
         verbose => 1,
     );

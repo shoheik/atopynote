@@ -3,8 +3,8 @@ app.views.FormView = Backbone.View.extend({
     id: 'main_view',
 
     initialize: function () {
-        this.searchResults = new app.models.EmployeeCollection();
-        this.searchresultsView = new app.views.EmployeeListView({model: this.searchResults});
+        //this.searchResults = new app.models.EmployeeCollection();
+        //this.searchresultsView = new app.views.EmployeeListView({model: this.searchResults});
         this.dates = new app.models.DateCollection();
         this.dateView = new app.views.DateView({ collection: this.dates }); 
         this.meal_model = new app.models.meal();

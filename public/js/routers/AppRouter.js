@@ -3,9 +3,9 @@ app.routers.AppRouter = Backbone.Router.extend({
     routes: {
         "":                         "home",
         "form":                     "form",
-        "employees/:id":            "employeeDetails",
-        "employees/:id/reports":    "reports",
-        "employees/:id/map":        "map"
+        "stats":                    "stats",
+        "feedback":                 "feedback",
+        "xchange":                  "xchange"
     },
 
     initialize: function () {
@@ -39,30 +39,41 @@ app.routers.AppRouter = Backbone.Router.extend({
         //app.slider.slidePage(app.formView.$el);
     },
 
-    employeeDetails: function (id) {
-        var employee = new app.models.Employee({id: id});
-        employee.fetch({
-            success: function (data) {
-                // Note that we could also 'recycle' the same instance of EmployeeFullView
-                // instead of creating new instances
-                //app.slider.slidePage(new app.views.EmployeeView({model: data}).render().$el);
-            }
-        });
+    stats: function () {
+        if (!app.statsView) {
+            app.statsView = new app.views.StatsView();
+            app.statsView.render();
+        } else {
+            console.log('reusing home view');
+            app.statsView.delegateEvents(); // delegate events when the view is recycled
+        }
+        //app.slider.slidePage(app.homeView.$el);
+        $('#body').html(app.statsView.$el);
     },
 
-    reports: function (id) {
-        var employee = new app.models.Employee({id: id});
-        employee.fetch({
-            success: function (data) {
-                // Note that we could also 'recycle' the same instance of EmployeeFullView
-                // instead of creating new instances
-                //app.slider.slidePage(new app.views.ReportsView({model: data}).render().$el);
-            }
-        });
+    xchange: function () {
+        if (!app.xchangeView) {
+            app.xchangeView = new app.views.XchangeView();
+            app.xchangeView.render();
+        } else {
+            console.log('reusing home view');
+            app.xchangeView.delegateEvents(); // delegate events when the view is recycled
+        }
+        //app.slider.slidePage(app.homeView.$el);
+        $('#body').html(app.xchangeView.$el);
     },
 
-    map: function (id) {
-        //app.slider.slidePage(new app.views.MapView().render().$el);
-    }
+    feedback: function () {
+        if (!app.feedbackView) {
+            app.feedbackView = new app.views.FeedbackView();
+            app.feedbackView.render();
+        } else {
+            console.log('reusing home view');
+            app.feedbackView.delegateEvents(); // delegate events when the view is recycled
+        }
+        //app.slider.slidePage(app.homeView.$el);
+        $('#body').html(app.feedbackView.$el);
+    },
+
 
 });

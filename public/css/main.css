@@ -331,7 +331,8 @@ h1 {
 }
 
 .pure-button-primary {
-    background: #bad664; 
+    background: #5fca5f; 
+    color: white;
     font-weight:bold;
 }
 
@@ -339,6 +340,10 @@ h1 {
     background: #5fafca;
     color: white;
     font-weight:bold;
+}
+#button_grp {
+    text-align: center;
+    padding-top: 10px;
 }
 
 #footer {
