@@ -1,98 +1,104 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atopy Note</title>
-    <link rel="stylesheet" href="/css/pure/pure-min.css">
-    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <script src="/lib/jquery/jquery-1.10.2.min.js"></script>
-  </head>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<link rel="stylesheet" href="/css/gumby2/gumby.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+<title>Atopy Note</title>
+<script src="/lib/jquery/jquery-1.10.2.min.js"></script>
+<script src="/lib/gumby2/modernizr-2.6.2.min.js"></script>
+<script src="/lib/gumby2/gumby.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#login-button').click(function() {
+          var data = {};
+          data.id = $('input#id').val(); 
+          data.password = $('input#password').val(); 
+          $.post('/login', data, function(res) {
+              if (res == 'ok'){
+                  location.href = "/";
+              }else {
+                  $("#errmsg").html("IDまたはパスワードが正しくありません");
+              }
+          });
+          return false;
+      });
+  });
+</script>
+</head>
+<body>
 
-  <script type="text/javascript">
-    $(document).ready(function() {
-        $('form').submit(function() {
-            var data = {};
-            data.id = $('input#id').val(); 
-            data.password = $('input#password').val(); 
-            $.post('/login', data, function(res) {
-                if (res == 'ok'){
-                    location.href = "/";
-                }else {
-                    $("#errmsg").html("IDまたはパスワードが正しくありません");
-                }
-            });
-            return false;
-        });
-    });
-  </script>
+<div class="navbar" id="nav1">
+  <div class="row">
+    <a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i class="icon-menu"></i></a>
+    <h1 class="four columns logo">
+      <a href="/">
+          ATOPY NOTE
+      </a>
+    </h1>
+    <ul class="eight columns">
+      <li><a href="#">Register</a></li>
+      <li>
+        <a href="#">Tour</a>
+        <div class="dropdown">
+          <ul>
+            <li><a href="#">What's about</a></li>
+            <li><a href="#">How to use</a></li>
+            <li><a href="#">Know yourself</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </div>
+</div>
 
-  <body>
-    <div id="content">
-      <div class="pure-g-r">
-        <div class="pure-u-1 header">
-          <div id="head" class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
-            <a class="pure-menu-heading" href="/"><h1>Atopy Note</h1></a>
-            <ul id="topnavi">
-                <li class="pure-menu-selected"><a href="/top.html">Home</a></li>
-                <li><a href="/register.html">Register</a></li>
-                <li><a href="#">Tour</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About</a></li>
+ <div class="full-width">
+   <div class="row">
+     <div class="twelve columns">
+       <div class="row">
+          <div class="seven columns">
+              <br>
+              <p>Rather than overcome this desease, we can live with this.
+              As long as you know what you are, the life is much better:)</p>
+          </div>
+
+          <br>
+          <fieldset class="five columns">
+            <legend>ログイン</legend>
+            <ul>
+              <li class="field">
+                <input class="wide text input" id="id" type="text" placeholder="ID(Eメールアドレス)" />
+              </li>
+              <li class="field">
+                <input class="wide password input" id="password" type="password" placeholder="パスワード" />
+              </li>
+              <li class="field"> 
+                <div id="login-button" class="medium primary btn">ログイン</div>
+                <a href="/register.html" id="secondary-button" class="medium secondary btn">ユーザ登録</a>
+                <br><span id="errmsg"></span>
+              </li>
             </ul>
-          </div>
-        </div>
+          </fieldset>
 
-        <div id="wall">
-          <div class="pure-u-1-2">
-            <div id="in_wall">
-              <i class="icon-bar-chart"></i><br>
-            </div>
-          </div>
-          
-          <div class="pure-u-1-2">
-            <br><br><br>
-             <div id="form">
-                <form class="pure-form pure-form-aligned">
-                  <b>ログイン</b>
-                  <fieldset>
-                      <div class="pure-control-group">
-                          <label for="id">ID(Eメールアドレス)</label>
-                          <input id="id" type="text" placeholder="email@address">
-                      </div>
-               
-                      <div class="pure-control-group">
-                          <label for="password">パスワード</label>
-                          <input id="password" type="password" placeholder="Password">
-                      </div>
-               
-                      <div class="pure-control-group">
-                          <div id="button_grp">
-                            <button id="login_button" type="submit" class="pure-button pure-button-primary">ログイン</button>
-                            <a href="/register.html" class="pure-button pure-button-success">ユーザ登録</a>
-                            <br>
-                            <span id="errmsg"></span>
-                          </div>
-                      </div>
-                  </fieldset>
-                </form>
-             </div>
-          </div>
-        </div>
-        <div class="pure-u-1-3">
-        </div>
-        <div class="pure-u-1-3">
-        </div>
-        <div class="pure-u-1-3">
-        </div>
-        
-      </div>
-    
-    <hr>
-    <div id="footer">
-        copyright Atopy Note 2013 all reserved
+       </div>
     </div>
-    
-  </body>
-</html>
+</div>
+</div>
+
+<div class="row">
+  <div class="four columns">
+      <p>Your record</p>
+  </div>
+  <div class="four columns">
+      See statistics 
+  </div>
+  <div class="four columns">
+      Share info
+  </div>
+</div>
+
+</body>

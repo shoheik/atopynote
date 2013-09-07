@@ -4,7 +4,6 @@ app.views.FeedbackView = Backbone.View.extend({
     },
 
     render: function () {
-        console.log('here');
         this.$el.html(this.template());
         return this;
     },
