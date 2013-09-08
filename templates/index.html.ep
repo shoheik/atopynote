@@ -1,48 +1,46 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Atopy Note</title>
-    <link rel="stylesheet" href="/css/pure/pure-min.css"> 
-    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/main.css"> 
-  </head>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<link rel="stylesheet" href="/css/gumby2/gumby.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+<title>Atopy Note</title>
+<script src="/lib/jquery/jquery-1.10.2.min.js"></script>
+<script src="/lib/gumby2/modernizr-2.6.2.min.js"></script>
+<script src="/lib/gumby2/gumby.min.js"></script>
+</head>
+<body>
 
-  <body>
-      <div class="pure-g-r">
-        <div class="pure-u-1 header">
-          <div id="head" class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
-            <a class="pure-menu-heading" href="/"><h1>Atopy Note</h1></a>
-          </div>
+    <div class="navbar" id="nav1">
+      <div class="row">
+        <a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i class="icon-menu"></i></a>
+        <h1 class="four columns logo"><a href="/">ATOPY NOTE</a></h1>
+      </div>
+    </div>
 
-          <div class="content" id="layout">
-              <div class="pure-u" id="nav">
-                  <a href="#" class="nav-menu-button">Menu</a>
-                  <div class="nav-inner">
-                      <a href="#form" class="pure-button primary-button"><span class="icon"><i class="icon-pencil"></i></span>記録</a>
-          
-                      <div class="pure-menu pure-menu-open">
-                          <ul>
-                              <li id="sidelist"><a href="/"><span class="icon"><i class="icon-home"></i></span>ホーム</a></li>
-                              <li id="sidelist"><a href="#stats"><span class="icon"><i class="icon-bar-chart"></i></span>統計情報</a></li>
-                              <li id="sidelist"><a href="#xchange"><span class="icon"><i class="icon-comments"></i></span>情報交換</a></li>
-                              <li id="sidelist"><a href="#feedback"><span class="icon"><i class="icon-mail-reply"></i></span>フィードバック</a></li>
-                              <li id="sidelist"><a href="/logoff"><span class="icon"><i class="icon-signout"></i></span>ログオフ</a></li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          
-              <div class="pure-u-1" id="list">
-                 <div id="body"></div>
-                 <input id="uid" type="hidden" name="uid" value="<%= $uid %>">
-              </div>
-          </div>
-        </div>
-     </div>
+    <div id="contents">
+    <div class="row">
+        <div class="three columns">
+        <ul id="sidebar-nav" gumby-fixed="top">
+          <a href="#form"><li id="sidelist"><span class="icon"><i class="icon-pencil"></i></span> 記録</li></a>
+          <hr>
+          <a href="/"><li id="sidelist"><span class="icon"><i class="icon-home"></i></span> ホーム</li></a>
+          <a href="#stats"><li id="sidelist"><span class="icon"><i class="icon-bar-chart"></i></span> 統計情報</li></a>
+          <a href="#xchange"><li id="sidelist"><span class="icon"><i class="icon-comments"></i></span> 情報交換</li></a>
+          <a href="#feedback"><li id="sidelist"><span class="icon"><i class="icon-mail-reply"></i></span> フィードバック</li></a>
+          <a href="/logoff"><li id="sidelist"><span class="icon"><i class="icon-signout"></i></span> ログオフ</li></a>
+        </ul>
+      </div>
+      <div class="thirteen columns ">
+        <div id="body"></div>
+        <input id="uid" type="hidden" name="uid" value="<%= $uid %>">
+      </div>
+    </div>
+    </div>
 
 
-    <script src="lib/jquery/jquery-1.10.2.min.js"></script>
     <script src="lib/underscorejs/underscore-min.js"></script>
     <script src="lib/backbonejs/backbone-min.js"></script>
 

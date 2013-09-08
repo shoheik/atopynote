@@ -1,14 +1,14 @@
-<div id="title">
-    <span class="icon"><i class="icon-edit"></i></span>日々の体調と食事を記録しましょう
-</div>
+<h4 id="title"><span class="icon"><i class="icon-edit"></i></span> 体調と食事を記録しましょう</h4>
 
-<form class="pure-form white_bg">
-  <div class="pure-g-r">
-    <div class="pure-u-2-5">
+<form class="pure-form">
+ <div class="row">
+   <div class="six columns">
       <div class="category">
         <fieldset>
             <legend><div class='item'>日時</div></legend>
+            <div class="picker">
             <div id="date"></div>
+            </div>
         </fieldset>
   
         <fieldset>
@@ -60,6 +60,7 @@
   
         <fieldset>
             <legend><div class='item'>睡眠時間</div></legend>
+            <div class="picker">
             <select name="sleep">
                 <option value='1'>1</option><option value='1.5'>1.5</option>
                 <option value='2'>2</option><option value='2.5'>2.5</option>
@@ -73,22 +74,23 @@
                 <option value='10'>10</option><option value='10.5'>10.5</option>
                 <option value='11'>11</option><option value='11.5'>11.5</option>
                 <option value='12'>12</option>
-            </select> 時間
+            </select> 
+            </div> 時間
         </fieldset>
 
         <fieldset>
           <legend><div class='item'>メモ(256文字以内)</div></legend>
-          <textarea name="memo" class="pure-u-1" rows=8></textarea>
+          <textarea class="text input" name="memo" rows=8></textarea>
         </fieldset>
 
       </div>
     </div>
-    <div class="pure-u-1-2">
+    <div class="six columns">
       <div class="category">
         <%= meal %>
         <br>
         <div id="home_menu">
-          <button id="submit" class="pure-button primary-button">送信する</button>
+            <button id="submit" class="medium primary btn">送信する</button>
         </div>
         <br>
       </div>
