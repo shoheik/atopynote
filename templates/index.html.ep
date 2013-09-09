@@ -22,7 +22,7 @@
 
     <div id="contents">
     <div class="row">
-        <div class="three columns push_one">
+        <div class="three columns">
         <ul id="sidebar-nav" gumby-fixed="top">
           <a href="#form"><li id="sidelist"><span class="icon"><i class="icon-pencil"></i></span> 記録</li></a>
           <hr>
@@ -33,7 +33,7 @@
           <a href="/logoff"><li id="sidelist"><span class="icon"><i class="icon-signout"></i></span> ログオフ</li></a>
         </ul>
       </div>
-      <div class="eight columns">
+      <div class="nine columns">
         <div id="body"></div>
         <input id="uid" type="hidden" name="uid" value="<%= $uid %>">
       </div>
