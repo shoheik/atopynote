@@ -54,7 +54,8 @@
 } 
 
 .category {
-    padding-left: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #sidebar-nav{
@@ -109,7 +110,7 @@
 
 #checkbox_view {
     padding: 5px;
-    width: 310px;
+    width: 410px;
 }
 
 #checkbox_view .pure-checkbox{
