@@ -9,4 +9,5 @@ requires 'Cache::Memcached::Fast', 0.21;
 requires 'Digest::SHA';
 requires 'TheSchwartz', 1.10;
 requires 'Mail::Mailer';
+requires 'Starman';
 

@@ -261,6 +261,20 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.36
       Test::More 0.96
       Try::Tiny 0
+  Data-Dump-1.22
+    pathname: G/GA/GAAS/Data-Dump-1.22.tar.gz
+    provides:
+      Data::Dump 1.22
+      Data::Dump::FilterContext undef
+      Data::Dump::Filtered undef
+      Data::Dump::Trace 0.02
+      Data::Dump::Trace::Call 0.02
+      Data::Dump::Trace::Wrapper 0.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      Symbol 0
+      Test 0
+      perl 5.006
   Data-ObjectDriver-0.09
     pathname: S/SI/SIXAPART/Data-ObjectDriver-0.09.tar.gz
     provides:
@@ -556,6 +570,14 @@ DISTRIBUTIONS
       MIME::QuotedPrint 0
       URI 1.10
       perl 5.008001
+  HTTP-Parser-XS-0.16
+    pathname: K/KA/KAZUHO/HTTP-Parser-XS-0.16.tar.gz
+    provides:
+      HTTP::Parser::XS 0.16
+      HTTP::Parser::XS::PP undef
+    requirements:
+      ExtUtils::MakeMaker 6.42
+      Test::More 0.96
   HTTP-Tiny-0.034
     pathname: D/DA/DAGOLDEN/HTTP-Tiny-0.034.tar.gz
     provides:
@@ -654,11 +676,11 @@ DISTRIBUTIONS
       Net::Domain 1.05
       Net::SMTP 1.03
       Test::More 0
-  Module-Build-Tiny-0.025
-    pathname: L/LE/LEONT/Module-Build-Tiny-0.025.tar.gz
+  Module-Build-Tiny-0.027
+    pathname: L/LE/LEONT/Module-Build-Tiny-0.027.tar.gz
     provides:
       DistGen 0.01
-      Module::Build::Tiny 0.025
+      Module::Build::Tiny 0.027
     requirements:
       CPAN::Meta 0
       Exporter 5.57
@@ -840,6 +862,38 @@ DISTRIBUTIONS
       Module::Runtime 0.012
       Role::Tiny 1.003
       strictures 1.004003
+  Net-Server-2.007
+    pathname: R/RH/RHANDOM/Net-Server-2.007.tar.gz
+    provides:
+      Net::Server 2.007
+      Net::Server::Daemonize 0.06
+      Net::Server::Fork undef
+      Net::Server::HTTP undef
+      Net::Server::INET undef
+      Net::Server::INET::Handle undef
+      Net::Server::Log::Log::Log4perl undef
+      Net::Server::Log::Sys::Syslog undef
+      Net::Server::MultiType undef
+      Net::Server::Multiplex undef
+      Net::Server::Multiplex::MUX undef
+      Net::Server::PSGI undef
+      Net::Server::PreFork undef
+      Net::Server::PreForkSimple undef
+      Net::Server::Proto undef
+      Net::Server::Proto::SSL undef
+      Net::Server::Proto::SSLEAY undef
+      Net::Server::Proto::TCP undef
+      Net::Server::Proto::UDP undef
+      Net::Server::Proto::UNIX undef
+      Net::Server::Proto::UNIXDGRAM undef
+      Net::Server::SIG 0.03
+      Net::Server::Single undef
+      Net::Server::TiedHandle 2.007
+    requirements:
+      ExtUtils::MakeMaker 0
+      IO::Socket 0
+      POSIX 0
+      Socket 0
   Package-Stash-0.35
     pathname: D/DO/DOY/Package-Stash-0.35.tar.gz
     provides:
@@ -1012,6 +1066,24 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Test::Fatal 0.003
       Test::More 0.96
+  Starman-0.4008
+    pathname: M/MI/MIYAGAWA/Starman-0.4008.tar.gz
+    provides:
+      HTTP::Server::PSGI::Net::Server::PreFork undef
+      Plack::Handler::Starman undef
+      Starman 0.4008
+      Starman::Server undef
+    requirements:
+      Data::Dump 0
+      HTTP::Date 0
+      HTTP::Parser::XS 0
+      HTTP::Status 0
+      Module::Build::Tiny 0.026
+      Net::Server 2.007
+      Plack 0.9971
+      Test::TCP 2.00
+      parent 0
+      perl 5.008001
   Stream-Buffered-0.02
     pathname: D/DO/DOY/Stream-Buffered-0.02.tar.gz
     provides:

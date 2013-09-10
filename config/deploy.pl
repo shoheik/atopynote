@@ -66,10 +66,30 @@ task deploy  => {
         } $host;
     },
 };
- 
-task server => {
+
+task mailworker => {
     start => sub {
         my ($host) = @_;
+        my $deploy_to = get('deploy_to');
+        remote {
+            #sudo "supervisorctl start myapp";
+            run "cd $deploy_to && ./script/start_mailworker.sh";
+        } $host;
+    },
+    stop => sub {
+        my ($host) = @_;
+        my $deploy_to = get('deploy_to');
+        remote {
+            #sudo "supervisorctl stop myapp";
+            run "cd $deploy_to && ./script/stop_mailworker.sh";
+        } $host;
+    },
+};
+ 
+task web => {
+    start => sub {
+        my ($host) = @_;
+        my $deploy_to = get('deploy_to');
         remote {
             #sudo "supervisorctl start myapp";
             run "cd $deploy_to && ./script/start_atopynote.sh";
@@ -77,6 +97,7 @@ task server => {
     },
     stop => sub {
         my ($host) = @_;
+        my $deploy_to = get('deploy_to');
         remote {
             #sudo "supervisorctl stop myapp";
             run "cd $deploy_to && ./script/stop_atopynote.sh";

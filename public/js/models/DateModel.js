@@ -6,7 +6,7 @@ app.models.DateCollection = Backbone.Collection.extend({
 
     initialize: function () {
         this.date = new Date();
-        for (var i=0; i>-7; i--) {
+        for (var i=0; i>-30; i--) {
             var d = this.computeDate(i);
             this.add(new this.model({date: d}));
         }
