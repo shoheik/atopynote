@@ -1,6 +1,7 @@
 app.models.FormModel = Backbone.Model.extend({
 
-    url: "http://127.0.0.1:3000/form/submit",
+    //url: "http://127.0.0.1:3000/form/submit",
+    urlRoot: "/form/submit",
 
     initialize:function () {
         var uid = $('#uid').val();
