@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title>Atopy Note</title>
-    <link rel="stylesheet" href="/css/pure/pure-min.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/gumby2/gumby.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   </head>
   <script type="text/javascript">
@@ -29,51 +29,58 @@
   </script>
 
   <body>
-    <div id="content">
-      <div class="pure-g-r">
-        <div class="pure-u-1 header">
-          <div id="head" class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
-            <a class="pure-menu-heading" href="/"><h1>Atopy Note</h1></a>
-            <ul id="topnavi">
-                <li><a href="/top.html">Home</a></li>
-                <li class="pure-menu-selected"><a href="/register.html">Register</a></li>
-                <li><a href="#">Tour</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-          </div>
-        </div>
-        <br><br><br><br>
-        <div class="pure-u-1-4"></div>
-        <div class="pure-u-1-2">
-            <form id="register" class="pure-form pure-form-aligned">
-                  <legend>登録確認</legend>
-                  <fieldset>
-                      <div class="pure-control-group">
-                          <label for="id">ID(Eメールアドレス)</label>
-                          <input id="id" type="text" name="id" value="<%= $id %>">
-                      </div>
-              
-                      <div class="pure-control-group">
-                          <label for="onetime_code">確認用コード</label>
-                          <input id="onetime_code" type="text" name="onetime_code">
-                      </div>
 
-                      <div class="pure-control-group">
+     <div class="navbar" id="nav1">
+       <div class="row">
+         <a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i class="icon-menu"></i></a>
+         <h1 class="four columns logo"><a href="/">ATOPY NOTE</a></h1>
+         <ul class="eight columns">
+           <li><a href="/register.html">Register</a></li>
+           <li>
+             <a href="#">Tour</a>
+             <div class="dropdown">
+               <ul>
+                 <li><a href="#">What's about</a></li>
+                 <li><a href="#">How to use</a></li>
+                 <li><a href="#">Know yourself</a></li>
+               </ul>
+             </div>
+           </li>
+           <li><a href="#">Blog</a></li>
+           <li><a href="#">About</a></li>
+         </ul>
+       </div>
+     </div>
+
+     <div class="row">
+         <div class="two columns"></div>
+         <div class="eight columns">
+             <form class="register-form">
+                <br>
+                <legend><h3>登録確認</h3></legend>
+                <br>
+                <ul>
+
+                    <li class="field">
+                        <label class="inline" for="id">メールアドレス</label>
+                        <input id="id" class="wide text input" type="text" name="id" value="<%= $id %>">
+                    </li>
+              
+                    <li class="field">
+                        <label class="inline" for="onetime_code">確認用コード</label>
+                        <input id="onetime_code" class="wide input text" type="text" name="onetime_code">
+                    </li>
+
+                    <li class="field">
                         <label></label>
-                        <button class="pure-button pure-button-success">送信する</button>
+                        <button id="submit" class="secondary medium btn">送信する</button>
                         <span id="errmsg"></span>
-                      </div>
-                  </fieldset>
+                    </li>
+                </ul>
               </form>
         </div>
-        <div class="pure-u-1-4"></div>
-        <div class="pure-u-1">
-          <div id="footer">
-              copyright Atopy Note 2013 all reserved
-          </div>
-        </div>
+        <div class="two columns"></div>
     </div>
-  </div>
+
 </body>
 </html>
