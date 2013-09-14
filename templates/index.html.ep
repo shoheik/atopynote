@@ -43,7 +43,7 @@
 
     <script src="lib/underscorejs/underscore-min.js"></script>
     <script src="lib/backbonejs/backbone-min.js"></script>
-    <script src="lib/Chartjs/Chart.js"></script>
+    <script src="lib/Chartjs/Chart.min.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/utils/templates.js"></script>

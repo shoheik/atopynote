@@ -21,7 +21,6 @@ app.routers.AppRouter = Backbone.Router.extend({
             console.log('reusing home view');
             app.homeView.delegateEvents(); // delegate events when the view is recycled
         }
-        //app.slider.slidePage(app.homeView.$el);
         $('#body').html(app.homeView.$el);
     },
 
@@ -36,7 +35,6 @@ app.routers.AppRouter = Backbone.Router.extend({
             app.homeView.delegateEvents(); // delegate events when the view is recycled
         }
         $('#body').html(app.formView.$el);
-        //app.slider.slidePage(app.formView.$el);
     },
 
     stats: function () {
@@ -47,7 +45,6 @@ app.routers.AppRouter = Backbone.Router.extend({
             console.log('reusing home view');
             app.statsView.delegateEvents(); // delegate events when the view is recycled
         }
-        //app.slider.slidePage(app.homeView.$el);
         $('#body').html(app.statsView.$el);
     },
 
