@@ -37,8 +37,9 @@ has 'schema' => (
 
 sub _build_db {
     my $self = shift;
+    my $dsn = 'dbi:mysql:' . $self->config->{dbname};
     return Atopynote::DB->new(+{
-        dsn => $self->config->{db_dsn},
+        dsn => $dsn, 
         username => $self->config->{db_username},
         password => $self->config->{password}
     });
@@ -61,11 +62,12 @@ sub _build_memcached {
 
 sub _build_qclient {
     my $self = shift;
+    my $dsn = 'dbi:mysql:' . $self->config->{q_dbname};
     return TheSchwartz->new(
         databases => [{
             #dsn  => 'dbi:mysql:jobq',
             # TODO TheSchartz DB is the same as main one
-            dsn => $self->config->{q_db_dsn},
+            dsn => $dsn,
             user =>  $self->config->{q_db_username},
             pass =>  $self->config->{q_password},
         }],
