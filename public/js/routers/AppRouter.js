@@ -35,6 +35,9 @@ app.routers.AppRouter = Backbone.Router.extend({
             app.homeView.delegateEvents(); // delegate events when the view is recycled
         }
         $('#body').html(app.formView.$el);
+        // Move to #body
+        var bodyOffset = $('#body').offset();
+        $('html, body').animate({scrollTop: bodyOffset.top}, "slow");
     },
 
     stats: function () {
