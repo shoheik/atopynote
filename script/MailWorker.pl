@@ -14,7 +14,7 @@ sub work {
     my $info = $job->arg;
     my $subject = "認証用コード[Atopy Note]";
     my $code = $info->{code};
-    my $body = "30分以内に認証用コードを入力してください\n認証用コード: $code\n";
+    my $body = "認証番号: $code\nこの番号をウェブページに入力してください。番号の有効期限は30分です。\n";
     my $to = $info->{email};
  
     print "process...\n";

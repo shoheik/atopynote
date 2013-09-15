@@ -36,8 +36,7 @@ app.routers.AppRouter = Backbone.Router.extend({
         }
         $('#body').html(app.formView.$el);
         // Move to #body
-        var bodyOffset = $('#body').offset();
-        $('html, body').animate({scrollTop: bodyOffset.top}, "slow");
+        $('html, body').animate({scrollTop: $('#body').offset().top}, "slow");
     },
 
     stats: function () {
@@ -49,6 +48,7 @@ app.routers.AppRouter = Backbone.Router.extend({
             app.statsView.delegateEvents(); // delegate events when the view is recycled
         }
         $('#body').html(app.statsView.$el);
+        $('html, body').animate({scrollTop: $('#body').offset().top}, "slow");
     },
 
     xchange: function () {
@@ -61,6 +61,7 @@ app.routers.AppRouter = Backbone.Router.extend({
         }
         //app.slider.slidePage(app.homeView.$el);
         $('#body').html(app.xchangeView.$el);
+        $('html, body').animate({scrollTop: $('#body').offset().top}, "slow");
     },
 
     feedback: function () {
@@ -73,6 +74,7 @@ app.routers.AppRouter = Backbone.Router.extend({
         }
         //app.slider.slidePage(app.homeView.$el);
         $('#body').html(app.feedbackView.$el);
+        $('html, body').animate({scrollTop: $('#body').offset().top}, "slow");
     },
 
 

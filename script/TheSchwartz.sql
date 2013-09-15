@@ -1,9 +1,12 @@
+
+DROP TABLE IF EXISTS funcmap;
 CREATE TABLE funcmap (
         funcid         INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         funcname       VARCHAR(255) NOT NULL,
         UNIQUE(funcname)
 );
  
+DROP TABLE IF EXISTS job;
 CREATE TABLE job (
         jobid           BIGINT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
         funcid          INT UNSIGNED NOT NULL,
@@ -19,6 +22,7 @@ CREATE TABLE job (
         INDEX (funcid, coalesce)
 );
  
+DROP TABLE IF EXISTS note;
 CREATE TABLE note (
         jobid           BIGINT UNSIGNED NOT NULL,
         notekey         VARCHAR(255),
@@ -26,6 +30,7 @@ CREATE TABLE note (
         value           MEDIUMBLOB
 );
  
+DROP TABLE IF EXISTS error;
 CREATE TABLE error (
         error_time      INTEGER UNSIGNED NOT NULL,
         jobid           BIGINT UNSIGNED NOT NULL,
@@ -36,6 +41,7 @@ CREATE TABLE error (
         INDEX (jobid)
 );
  
+DROP TABLE IF EXISTS exitstatus;
 CREATE TABLE exitstatus (
         jobid           BIGINT UNSIGNED PRIMARY KEY NOT NULL,
         funcid          INT UNSIGNED NOT NULL DEFAULT 0,
