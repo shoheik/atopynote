@@ -54,25 +54,23 @@
 
      <div class="row">
          <div class="two columns"></div>
-         <div class="eight columns">
+         <div class="centered eight columns">
              <form class="register-form">
                 <br>
                 <legend><h3>登録確認</h3></legend>
                 <br>
                 <ul>
-
                     <li class="field">
-                        <label class="inline" for="id">メールアドレス</label>
+                    メールアドレス<br>
                         <input id="id" class="wide text input" type="text" name="id" value="<%= $id %>">
                     </li>
               
                     <li class="field">
-                        <label class="inline" for="onetime_code">確認用コード</label>
+                        確認用コード<br>
                         <input id="onetime_code" class="wide input text" type="text" name="onetime_code">
                     </li>
 
                     <li class="field">
-                        <label></label>
                         <button id="submit" class="secondary medium btn">送信する</button>
                         <span id="errmsg"></span>
                     </li>
