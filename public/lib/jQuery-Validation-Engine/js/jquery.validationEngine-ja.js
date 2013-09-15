@@ -129,11 +129,11 @@
                     // remote json service location
                     "url": "ajaxValidateFieldName",
                     // error
-                    "alertText": "* This name is already taken",
+                    "alertText": "* このユーザ名は利用できません",
                     // if you provide an "alertTextOk", it will show as a green prompt when the field validates
-                    "alertTextOk": "* This name is available",
+                    "alertTextOk": "* このユーザ名は利用できます",
                     // speaks by itself
-                    "alertTextLoad": "* Validating, please wait"
+                    "alertTextLoad": "* 確認中"
                 },
                 "validate2fields": {
                     "alertText": "* 『HELLO』と入力してください"

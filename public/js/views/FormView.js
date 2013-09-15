@@ -18,7 +18,7 @@ app.views.FormView = Backbone.View.extend({
                     var meal_html = "";
                     for (var type in meal){
                         //console.log(type);
-                        var tpl = _.template("<label for='<%= item %>' class='pure-checkbox'><input type='checkbox' name='<%= type %>' id='<%= type %>_<%= item %>' value='<%= item %>'/><%= label %></label>");
+                        var tpl = _.template("<label for='<%= item %>' class='meal-checkbox'><input type='checkbox' name='<%= type %>' id='<%= type %>_<%= item %>' value='<%= item %>'/><%= label %></label>");
                         var html = "";
                         for (var item in meal[type]) {
                             html += tpl({ item: item, label:meal[type][item], type: type }); 

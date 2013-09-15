@@ -23,7 +23,7 @@
 
 <div class="navbar" id="nav1">
   <div class="row">
-    <a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i class="icon-menu"></i></a>
+    <a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i class="icon-reorder"></i></a>
     <h1 class="four columns logo"><a href="/">ATOPY NOTE</a></h1>
     <ul class="eight columns">
       <li><a href="/register.html">Register</a></li>
@@ -46,37 +46,37 @@
 
 <div class="row">
   <div class="two columns"></div>
-  <div class="eight columns">
+  <div class="centered eight columns">
     <form id="register" class="register-form" action="/register" method="POST">
         <br>
         <legend><h3>ユーザ登録</h3></legend>
         <br>
          <ul>
             <li class="field">
-                 <label class="inline" for="id">メールアドレス</label>
-                 <input id="id" type="text" class="validate[required,custom[email]] wide text input" name="id" placeholder="email@address">
+                メールアドレス<br>
+                <input id="id" type="text" class="validate[required,custom[email]] wide text input" name="id" placeholder="email@address">
             </li>
             <li class="field">
-                 <label class="inline" for="username">ユーザ名</label>
+            ユーザ名<br>
                  <input id="username" type="text" class="wide text input validate[required,custom[onlyLetterNumber],maxSize[20],ajax[ajaxNameCall]]" name="username">
             </li>
             <li class="field">
-                 <label class="inline" for="password">パスワード</label>
+                 パスワード<br>
                  <input id="password" class="wide password input validate[required],minSize[6]" type="password" name="password" placeholder="Password">
             </li>
             <li class="field">
-                 <label for="password_confirm">パスワード(確認)</label>
+            パスワード(確認)<br>
                  <input id="password_confirm" class="wide password input validate[required,equals[password]]" type="password" placeholder="Password">
             </li>
 
             <li>
-                <label for="gender">性別</label>
+            性別<br>
                 <input type="radio" class="validate[required]" name="gender" value="male"> 男性 
                 <input type="radio" class="validate[required]" name="gender" value="female"> 女性 
             </li>
 
             <li class="field">
-              <label for="age">年齢</label>
+            年齢<br>
                 <div class="picker">
                  <select name="age">
                    <option value="0">0歳</option>
@@ -150,14 +150,13 @@
              </div>
             </li>
     
+            <br>
             <li> 
-                <label></label>
                 <input class="validate[required]" type="checkbox" id="agree" name="agree"/>
                 利用規約に同意する 
             </li>
     
             <li>
-                <label></label>
                 <input id="submit" type="submit" class="medium primary btn" value="登録する">
             </li>
 

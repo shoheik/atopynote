@@ -282,7 +282,7 @@ sub validate_user {
     my ($self, $username) = @_;
     my $row = $self->db->single('User', {username => $username });
     if (defined $row) {
-        return Mojo::JSOON->false;
+        return Mojo::JSON->false;
     }else {
         return Mojo::JSON->true;
     }
