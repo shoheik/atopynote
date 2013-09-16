@@ -59,6 +59,8 @@
                 <br>
                 <legend><h3>登録確認</h3></legend>
                 <br>
+                認証用コードをメールで送信しました。メールをご確認の上、下記に入力してください。
+                <br>
                 <ul>
                     <li class="field">
                     メールアドレス<br>
@@ -66,7 +68,7 @@
                     </li>
               
                     <li class="field">
-                        確認用コード<br>
+                        認証用コード<br>
                         <input id="onetime_code" class="wide input text" type="text" name="onetime_code">
                     </li>
 

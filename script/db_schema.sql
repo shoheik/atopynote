@@ -9,6 +9,7 @@ CREATE TABLE User
     gender VARCHAR(6),
     age INT,
     password CHAR(65),
+    start_date DATE,
     PRIMARY KEY (id,email,username)
 );
 

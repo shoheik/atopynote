@@ -10,6 +10,7 @@ install_table User => schema {
         password
         gender
         age
+        start_date
     /;
 };
 

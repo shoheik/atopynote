@@ -7,6 +7,8 @@ use Atopynote::DB::Schema;
 use Digest::SHA qw(sha256_hex);
 use Cache::Memcached::Fast;
 use TheSchwartz;
+use POSIX qw(strftime);
+
 
 has 'config' => (
     is => 'ro',
@@ -244,6 +246,7 @@ sub add_page {
 sub confirm_registry {
     my ($self, $data) = @_;
     my $user_info = $self->memd->get($data->{id});
+    my $today = strftime "%Y-%m-%d", localtime;
     print Dumper $user_info;
     if ($data->{code} eq $user_info->{onetime} ){
         $self->db->create('User', 
@@ -253,6 +256,7 @@ sub confirm_registry {
                 age => $user_info->{age},
                 gender => $user_info->{gender},
                 password => $user_info->{password},
+                start_date => $today,
              }
         );
         return "ok";
