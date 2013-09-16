@@ -54,12 +54,12 @@
                 <ul>
                     <li class="field">
                     メールアドレス<br>
-                        <input id="id" class="wide text input" type="text" name="id" value="<%= $id %>">
+                        <input id="id" class="xwide text input" type="text" name="id" value="<%= $id %>">
                     </li>
               
                     <li class="field">
                         認証用コード<br>
-                        <input id="onetime_code" class="wide input text" type="text" name="onetime_code">
+                        <input id="onetime_code" class="xwide input text" type="text" name="onetime_code">
                     </li>
 
                     <li class="field">
