@@ -150,6 +150,7 @@ body {
 
 form fieldset{
     padding:0px
+    border-style: none;
 }
 
 #memo {
