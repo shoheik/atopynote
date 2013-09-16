@@ -19,8 +19,8 @@ sub work {
  
     print "process...\n";
     print Dumper $job->arg;
-    my $subject = encode('MIME-Header-ISO_2022_JP', $subject);
-    my $body = encode('iso-2022-jp', $body);
+    $subject = encode('MIME-Header-ISO_2022_JP', $subject);
+    $body = encode('iso-2022-jp', $body);
 
     my $mailer = new Mail::Mailer 'smtp', Server => 'localhost';
     $mailer->open(
@@ -50,11 +50,12 @@ my $content = join "\n", @content;
 my $config_ref  = eval $content;
 #print Dumper $config_ref;
  
+my $dsn = 'dbi:mysql:' . $config_ref->{q_dbname};
 my $client = TheSchwartz->new(
     databases => [{
-        dsn  => $config_ref->{db_dsn},
-        user => $config_ref->{db_username},
-        pass => $config_ref->{password},
+        dsn  => $dsn,
+        user => $config_ref->{q_db_username},
+        pass => $config_ref->{q_password},
     }],
     verbose => 0, # ログを出力
 );
