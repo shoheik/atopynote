@@ -13,6 +13,12 @@
 <script src="/lib/fastclick/fastclick.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
+
+
+    $('.toggle').click(function() {
+        $('ul.nine').toggleClass('active');
+    })
+
     FastClick.attach(document.body);
 
     $('#login-button').click(function() {
