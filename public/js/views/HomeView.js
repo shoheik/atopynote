@@ -8,6 +8,20 @@ app.views.HomeView = Backbone.View.extend({
     render: function () {
         this.$el.html(this.template());
 
+        var width = $("#body").width() * 0.90;
+
+        this.$el.find('.graph').each(function(){
+            var c = $(this);
+            $(window).resize( respondCanvas );
+            function respondCanvas(){ 
+                c.attr('width', width ); //max width
+                c.attr('height', "300" ); //max height
+            }
+            //Initial call 
+            respondCanvas();
+        });
+
+
         var data = {
         	labels : ["January","February","March","April","May","June","July"],
         	datasets : [
