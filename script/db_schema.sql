@@ -11,7 +11,7 @@ CREATE TABLE User
     password CHAR(65),
     start_date DATE,
     PRIMARY KEY (id,email,username)
-);
+) ENGINE=INNODB;;
 
 DROP TABLE IF EXISTS Diary;
 CREATE TABLE Diary 
