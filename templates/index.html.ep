@@ -10,6 +10,13 @@
 <script src="/lib/jquery/jquery-1.10.2.min.js"></script>
 <script src="/lib/gumby2/modernizr-2.6.2.min.js"></script>
 <script src="/lib/gumby2/gumby.min.js"></script>
+<script src="/lib/fastclick/fastclick.js"></script>
+<script>
+
+$(document).ready(function() {
+    FastClick.attach(document.body);
+});
+</script>
 </head>
 <body>
 
