@@ -26,14 +26,9 @@ app.routers.AppRouter = Backbone.Router.extend({
 
     form: function () {
         // Since the home view never changes, we instantiate it and render it only once
-        if (!app.formView) {
-            var fm = new app.models.FormModel();
-            app.formView = new app.views.FormView({model: fm});
-            app.formView.render();
-        } else {
-            console.log('reusing form view');
-            app.homeView.delegateEvents(); // delegate events when the view is recycled
-        }
+        var fm = new app.models.FormModel();
+        app.formView = new app.views.FormView({model: fm});
+        app.formView.render();
         $('#body').html(app.formView.$el);
         // Move to #body
         $('html, body').animate({scrollTop: $('#body').offset().top}, "slow");
