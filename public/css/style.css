@@ -157,7 +157,10 @@ form fieldset{
     width: 100%
 }
 
-
 #graph-container{
     padding: 15px;
+}
+
+#submit_notes{
+    text-align: center;
 }
