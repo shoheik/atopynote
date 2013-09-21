@@ -41,6 +41,9 @@ app.views.FormView = Backbone.View.extend({
                     //self.model.set({meal: meal_html});
                     self.$el.html(self.template({meal: meal_html}));
                     self.$el.find('#date').replaceWith(self.dateView.el); // template migth be better but it's ok
+                    // move after repalcing html
+                    var offset = $('#body').offset().top;
+                    $('body').animate({scrollTop: offset}, "slow");
                     return self;
 
                 }                

@@ -26,12 +26,11 @@ app.routers.AppRouter = Backbone.Router.extend({
     },
 
     form: function () {
-        $('html, body').animate({scrollTop: $('#body').offset().top}, "slow");
         var fm = new app.models.FormModel();
         app.formView = new app.views.FormView({model: fm});
         app.formView.render();
+        // Move to #body in render()
         $('#body').html(app.formView.$el);
-        // Move to #body
     },
 
     stats: function () {
