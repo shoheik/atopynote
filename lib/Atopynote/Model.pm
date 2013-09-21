@@ -99,10 +99,11 @@ sub register {
     # 1. Create hash with salt
     # 2. Send mail with Job Queue
     #-----------------------------
-    my $hash = $self->get_password_hash($data->{id}, $data->{password});
+    my $email = lc $data->{id};
+    my $hash = $self->get_password_hash($email, $data->{password});
     $data->{password} = $hash;
     $data->{onetime} = int(rand(90000)) + 10000; # 5 number to authenticate later
-    $self->memd->set($data->{id}, $data, 60 * 15);
+    $self->memd->set($email, $data, 60 * 15);
 
     # Send mail now
     $self->qclient->insert(MailWorker => 
@@ -274,7 +275,7 @@ sub login {
     my $row = $self->db->single('User', {email => $email });
     if (defined $row) {
         my $db_pass = $row->get_column('password');
-        my $hash = $self->get_password_hash($data->{id}, $data->{password});
+        my $hash = $self->get_password_hash($email, $data->{password});
         if ($db_pass eq $hash) {
             return $row->get_column('id');
         }else {
