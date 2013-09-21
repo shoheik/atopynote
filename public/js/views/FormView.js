@@ -67,12 +67,11 @@ app.views.FormView = Backbone.View.extend({
 
         var form = $('form').serializeArray();
         this.model.set({meal: form}); 
-        //this.model.save();
-        this.model.save(null, { success : function(model, res){ 
-                alert("登録しました");
-                app.router.navigate("#home", {trigger: true});
-                return false;
-            }
-        });
+        this.model.save();
+        alert("登録しました");
+        app.router.navigate("#home", {trigger: true});
+        //this.model.save(null, { success : function(model, res){ 
+        //    }
+        //});
     }
 });
