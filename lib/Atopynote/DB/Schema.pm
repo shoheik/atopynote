@@ -50,6 +50,7 @@ install_table Meal => schema {
         rice
         bread
         poteto
+        noodle
         lite_vege
         dark_vege
         egg
