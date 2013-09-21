@@ -248,11 +248,13 @@ sub confirm_registry {
     my $user_info = $self->memd->get($data->{id});
     my $today = strftime "%Y-%m-%d", localtime;
     print Dumper $user_info;
+    my $email = lc $user_info->{id};
+    my $username = lc $user_info->{username};
     if ($data->{code} eq $user_info->{onetime} ){
         $self->db->create('User', 
             {
-                email => $user_info->{id},
-                username => $user_info->{username},
+                email => $email, 
+                username => $username,
                 age => $user_info->{age},
                 gender => $user_info->{gender},
                 password => $user_info->{password},
@@ -268,7 +270,8 @@ sub confirm_registry {
 sub login {
     my ($self, $session, $data) = @_;
     print Dumper $data;
-    my $row = $self->db->single('User', {email => $data->{id} });
+    my $email = lc $data->{id};
+    my $row = $self->db->single('User', {email => $email });
     if (defined $row) {
         my $db_pass = $row->get_column('password');
         my $hash = $self->get_password_hash($data->{id}, $data->{password});
