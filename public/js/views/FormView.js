@@ -14,6 +14,10 @@ app.views.FormView = Backbone.View.extend({
         var self = this;
         this.meal_model.fetch({
                 success: function(data){
+                    // move after repalcing html
+                    var offset = $('#body').offset().top;
+                    $('body').animate({scrollTop: offset}, "slow");
+
                     var meal = data.get('meal');
                     var meal_html = "";
                     for (var type in meal){
@@ -41,9 +45,6 @@ app.views.FormView = Backbone.View.extend({
                     //self.model.set({meal: meal_html});
                     self.$el.html(self.template({meal: meal_html}));
                     self.$el.find('#date').replaceWith(self.dateView.el); // template migth be better but it's ok
-                    // move after repalcing html
-                    var offset = $('#body').offset().top;
-                    $('body').animate({scrollTop: offset}, "slow");
                     return self;
 
                 }                
@@ -66,15 +67,12 @@ app.views.FormView = Backbone.View.extend({
 
         var form = $('form').serializeArray();
         this.model.set({meal: form}); 
-        this.model.save();
-        //this.model.save(null, { success : function(model, res){ 
-        //        alert('hello?');
-        //        console.log(res); 
-        //        //app.routers.navigate("www/index.html", {trigger: true});
-        //        //return false;
-        //    }
-        //});
-        app.router.navigate("#home", {trigger: true});
-
+        //this.model.save();
+        this.model.save(null, { success : function(model, res){ 
+                alert("登録しました");
+                app.router.navigate("#home", {trigger: true});
+                return false;
+            }
+        });
     }
 });
