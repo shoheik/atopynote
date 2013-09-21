@@ -2,7 +2,7 @@ app.routers.AppRouter = Backbone.Router.extend({
 
     routes: {
         "home":                     "home",
-        "":                     "home",
+        "":                         "home",
         "form":                     "form",
         "stats":                    "stats",
         "feedback":                 "feedback",
@@ -26,12 +26,12 @@ app.routers.AppRouter = Backbone.Router.extend({
     },
 
     form: function () {
+        $('html, body').animate({scrollTop: $('#body').offset().top}, "slow");
         var fm = new app.models.FormModel();
         app.formView = new app.views.FormView({model: fm});
         app.formView.render();
         $('#body').html(app.formView.$el);
         // Move to #body
-        $('html, body').animate({scrollTop: $('#body').offset().top}, "slow");
     },
 
     stats: function () {
