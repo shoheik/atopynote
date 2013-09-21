@@ -1,7 +1,8 @@
 app.routers.AppRouter = Backbone.Router.extend({
 
     routes: {
-        "":                         "home",
+        "home":                     "home",
+        "":                     "home",
         "form":                     "form",
         "stats":                    "stats",
         "feedback":                 "feedback",
@@ -25,7 +26,6 @@ app.routers.AppRouter = Backbone.Router.extend({
     },
 
     form: function () {
-        // Since the home view never changes, we instantiate it and render it only once
         var fm = new app.models.FormModel();
         app.formView = new app.views.FormView({model: fm});
         app.formView.render();

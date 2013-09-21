@@ -71,7 +71,7 @@ app.views.FormView = Backbone.View.extend({
         //        //return false;
         //    }
         //});
-        app.router.navigate("#", {trigger: true});
+        app.router.navigate("#home", {trigger: true});
 
     }
 });
