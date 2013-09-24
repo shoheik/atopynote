@@ -3,13 +3,17 @@ app.views.HomeView = Backbone.View.extend({
     initialize: function () {
         //this.searchResults = new app.models.EmployeeCollection();
         //this.searchresultsView = new app.views.EmployeeListView({model: this.searchResults});
+        //this.dates = new app.models.DateCollection();
+        // this.dateView = new app.views.DateView({ collection: this.dates }); 
+        this.basechart = new app.models.BaseChart();
+        
     },
 
     render: function () {
         this.$el.html(this.template());
 
+        // For responsive canvas
         var width = $("#body").width() * 0.90;
-
         this.$el.find('.graph').each(function(){
             var c = $(this);
             $(window).resize( respondCanvas );
@@ -21,29 +25,14 @@ app.views.HomeView = Backbone.View.extend({
             respondCanvas();
         });
 
-
-        var data = {
-        	labels : ["January","February","March","April","May","June","July"],
-        	datasets : [
-        		{
-        			fillColor : "rgba(220,220,220,0.5)",
-        			strokeColor : "rgba(220,220,220,1)",
-        			pointColor : "rgba(220,220,220,1)",
-        			pointStrokeColor : "#fff",
-        			data : [65,59,90,81,56,55,40]
-        		},
-        		{
-        			fillColor : "rgba(151,187,205,0.5)",
-        			strokeColor : "rgba(151,187,205,1)",
-        			pointColor : "rgba(151,187,205,1)",
-        			pointStrokeColor : "#fff",
-        			data : [28,48,40,19,96,27,100]
-        		}
-        	]
-        }
-
-        var ctx = this.$el.find('#myChart').get(0).getContext("2d");
-        new Chart(ctx).Line(data);
+        // Use adapter to retrieve data
+        var self = this;
+        var data = this.basechart.fetch({
+            success: function(data){
+                var ctx = self.$el.find('#myChart').get(0).getContext("2d");
+                new Chart(ctx).Line(data.attributes);
+            }
+        });
         return this;
     },
 
