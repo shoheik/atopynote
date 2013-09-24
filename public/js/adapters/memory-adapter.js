@@ -61,21 +61,21 @@ app.adapters.employee = (function () {
 app.adapters.chart = (function () {
 
     var data = {
-            labels : ["January","February","March","April","May","June","July"],
+            labels : ["2013-08-01","","","","","2013-08-08","2013-08-15","2013-08-22","2013-08-29"],
             datasets : [
                     {
-                            fillColor : "rgba(220,220,220,0.5)",
-                            strokeColor : "rgba(220,220,220,1)",
-                            pointColor : "rgba(220,220,220,1)",
-                            pointStrokeColor : "#fff",
-                            data : [65,59,90,81,56,55,40]
+			                fillColor : "rgba(0,180,255,0.1)",
+			                strokeColor : "#62a9dd",
+			                pointColor : "#62a9dd",
+			                pointStrokeColor : "#fff",
+                            data : [0,1,1,1,5,5,5,3,4,3,2,1]
                     },
                     {
                             fillColor : "rgba(151,187,205,0.5)",
-                            strokeColor : "rgba(151,187,205,1)",
-                            pointColor : "rgba(151,187,205,1)",
+                            strokeColor : "#db6a6a",
+                            pointColor : "#db6a6a",
                             pointStrokeColor : "#fff",
-                            data : [28,48,40,19,96,27,100]
+                            data : [3,3,3,4,5,5,3,6,3,6,]
                     }
             ]
     };

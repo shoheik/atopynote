@@ -27,10 +27,38 @@ app.views.HomeView = Backbone.View.extend({
 
         // Use adapter to retrieve data
         var self = this;
-        var data = this.basechart.fetch({
+        this.basechart.fetch({
             success: function(data){
                 var ctx = self.$el.find('#myChart').get(0).getContext("2d");
-                new Chart(ctx).Line(data.attributes);
+                new Chart(ctx).Line(data.attributes, {
+                    scaleOverlay : false,
+	                scaleOverride : true,
+	                scaleSteps : 5,
+	                scaleStepWidth : 1,
+	                scaleStartValue : null,
+	                scaleLineColor : "#9c9985",
+	                scaleLineWidth : 1,
+	                scaleShowLabels : true,
+	                scaleLabel : "<%=value%>",
+	                scaleFontFamily : "'Arial'",
+	                scaleFontSize : 11,
+	                scaleFontStyle : "normal",
+	                scaleFontColor : "#9c9985",	
+	                scaleShowGridLines : false,
+	                scaleGridLineColor : "#bebda5",
+	                scaleGridLineWidth : 1,	
+	                bezierCurve : false,
+	                pointDot : true,
+	                pointDotRadius : 6,
+	                pointDotStrokeWidth : 0,
+	                datasetStroke : true,
+	                datasetStrokeWidth : 3,
+	                datasetFill : false,
+	                animation : true,
+	                animationSteps : 60,
+	                animationEasing : "easeOutQuart",
+	                onAnimationComplete : null	
+                });
             }
         });
         return this;
