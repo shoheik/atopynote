@@ -10,4 +10,6 @@ requires 'Digest::SHA';
 requires 'TheSchwartz', 1.10;
 requires 'Mail::Mailer';
 requires 'Starman';
+requires 'Statistics::R';
+requires 'Redis';
 

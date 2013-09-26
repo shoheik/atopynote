@@ -609,6 +609,21 @@ DISTRIBUTIONS
       File::Temp 0
       Scalar::Util 0
       Test::More 0.88
+  IO-String-1.08
+    pathname: G/GA/GAAS/IO-String-1.08.tar.gz
+    provides:
+      IO::String 1.08
+    requirements:
+      ExtUtils::MakeMaker 0
+  IO-Tty-1.10
+    pathname: T/TO/TODDR/IO-Tty-1.10.tar.gz
+    provides:
+      IO::Pty 1.10
+      IO::Tty 1.10
+      IO::Tty::Constant undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
   IO-stringy-2.110
     pathname: D/DS/DSKOLL/IO-stringy-2.110.tar.gz
     provides:
@@ -627,6 +642,20 @@ DISTRIBUTIONS
       IO::WrapTie::Slave 2.110
     requirements:
       ExtUtils::MakeMaker 0
+  IPC-Run-0.92
+    pathname: T/TO/TODDR/IPC-Run-0.92.tar.gz
+    provides:
+      IPC::Run 0.92
+      IPC::Run::Debug 0.90
+      IPC::Run::IO 0.90
+      IPC::Run::Timer 0.90
+      IPC::Run::Win32Helper 0.90
+      IPC::Run::Win32IO 0.90
+      IPC::Run::Win32Pump 0.90
+    requirements:
+      ExtUtils::MakeMaker 0
+      IO::Pty 1.08
+      Test::More 0.47
   LWP-MediaTypes-6.02
     pathname: G/GA/GAAS/LWP-MediaTypes-6.02.tar.gz
     provides:
@@ -1057,6 +1086,62 @@ DISTRIBUTIONS
       Digest::SHA1 0
       Module::Build::Tiny 0.023
       Plack 0.9910
+  Redis-1.961
+    pathname: M/ME/MELO/Redis-1.961.tar.gz
+    provides:
+      Redis 1.961
+      Redis::Hash 1.961
+      Redis::List 1.961
+    requirements:
+      Digest::SHA 0
+      IO::String 0
+      IPC::Cmd 0
+      Test::Deep 0
+      Test::Fatal 0
+      Test::More 0.98
+      Try::Tiny 0
+  Regexp-Common-2013031301
+    pathname: A/AB/ABIGAIL/Regexp-Common-2013031301.tar.gz
+    provides:
+      Regexp::Common 2013031301
+      Regexp::Common::CC 2010010201
+      Regexp::Common::Entry 2013031301
+      Regexp::Common::SEN 2010010201
+      Regexp::Common::URI 2010010201
+      Regexp::Common::URI::RFC1035 2010010201
+      Regexp::Common::URI::RFC1738 2010010201
+      Regexp::Common::URI::RFC1808 2010010201
+      Regexp::Common::URI::RFC2384 2010010201
+      Regexp::Common::URI::RFC2396 2010010201
+      Regexp::Common::URI::RFC2806 2010010201
+      Regexp::Common::URI::fax 2010010201
+      Regexp::Common::URI::file 2010010201
+      Regexp::Common::URI::ftp 2010010201
+      Regexp::Common::URI::gopher 2010010201
+      Regexp::Common::URI::http 2010010201
+      Regexp::Common::URI::news 2010010201
+      Regexp::Common::URI::pop 2010010201
+      Regexp::Common::URI::prospero 2010010201
+      Regexp::Common::URI::tel 2010010201
+      Regexp::Common::URI::telnet 2010010201
+      Regexp::Common::URI::tv 2010010201
+      Regexp::Common::URI::wais 2010010201
+      Regexp::Common::_support 2010010201
+      Regexp::Common::balanced 2013030901
+      Regexp::Common::comment 2010010201
+      Regexp::Common::delimited 2010010201
+      Regexp::Common::lingua 2010010201
+      Regexp::Common::list 2010010201
+      Regexp::Common::net 2013031301
+      Regexp::Common::number 2013031101
+      Regexp::Common::profanity 2010010201
+      Regexp::Common::whitespace 2010010201
+      Regexp::Common::zip 2010010201
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.00473
+      strict 0
+      vars 0
   Role-Tiny-1.003001
     pathname: H/HA/HAARG/Role-Tiny-1.003001.tar.gz
     provides:
@@ -1084,6 +1169,19 @@ DISTRIBUTIONS
       Test::TCP 2.00
       parent 0
       perl 5.008001
+  Statistics-R-0.31
+    pathname: F/FA/FANGLY/Statistics-R-0.31.tar.gz
+    provides:
+      Statistics::R 0.31
+      Statistics::R::Legacy undef
+      Statistics::R::Win32 undef
+    requirements:
+      ExtUtils::MakeMaker 6.59
+      IPC::Run 0
+      Regexp::Common 0
+      Test::More 0.47
+      Text::Balanced 1.97
+      perl 5.006
   Stream-Buffered-0.02
     pathname: D/DO/DOY/Stream-Buffered-0.02.tar.gz
     provides:
