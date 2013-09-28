@@ -256,7 +256,7 @@ sub confirm_registry {
 }
 
 sub login {
-    my ($self, $session, $data) = @_;
+    my ($self, $data) = @_;
     print Dumper $data;
     my $email = lc $data->{id};
     my $row = $self->db->single('User', {email => $email });

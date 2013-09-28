@@ -24,10 +24,11 @@ sub _build_instance {
 sub get {
     my ($self, $func, $options) = @_;
 
-    # [{date,value},,,,] = get("feeling", $num_of_days) 
+    # {[[x1, y1], [x2, y2],,] = get("feeling", $num_of_days) 
     return $self->_get_feeling($options) if ($func eq "feeling");
-    return $self->_get_itchy($options) if ($func eq "itch");
 
+    # {[[x1, y1], [x2, y2],,] = get("itch", $num_of_days) 
+    return $self->_get_itchy($options) if ($func eq "itch");
 }
 
 # get historical feelings 
@@ -73,15 +74,13 @@ sub _get_attr_history {
         $data{$id} = $row->get_column($attr);
     }
 
-    my $result;
-    $result->{name} = $attr;
+    my @result;
     for my $date (@dates){
         my $attr_value = $data{ $date_page{$date} };
         #print "$date: $attr_value : $date_page{$date} \n";
-        push @{ $result->{labels} }, $date;
-        push @{ $result->{data} }, $attr_value;
+        push @result, [$date, $attr_value];
     }
-    return $result; 
+    return \@result; 
 }
 
 

@@ -57,16 +57,24 @@ sub confirm_registry {
 
 sub login {
     my $self = shift;
-    my $session = Plack::Session->new( $self->req->env );
+
+    my $request = Plack::Request->new($self->req->env);
+    my $session = Plack::Session->new( $request->env );
+
     my $data;
     $data->{id} = $self->param('id');
     $data->{password} = $self->param('password');
-    my $result = $self->model->login($session, $data);
+
+    # if ok, then $result is user_id 
+    my $result = $self->model->login($data);
+
     if ($result eq "notok") {
-        # TODO $self->req->env->{'psgix.session.options'}->{change_id}++;
         $self->render(text => $result );
     }else{
+        # For Session Fixation!!
+        $request->session_options->{change_id}++;
         $session->set('verified', $result); # store id attribute in User
+        print Dumper $session;
         $self->render(text => 'ok');
     }
 }
