@@ -7,7 +7,8 @@ use lib "$Bin/../lib";
 use Atopynote::Service::Config;
 use Data::Dumper;
 
-my $config = Atopynote::Service::Config->new(file => "$Bin/../etc/atopynote.conf");
-is($config->content->{dbname}, "atopynote", "loaded properly");
+my $config =  Atopynote::Service::Config->new(file => "$Bin/../etc/atopynote.conf");
+my $conf = $config->get();
+is($conf->{dbname}, "atopynote", "loaded properly");
 
 done_testing();

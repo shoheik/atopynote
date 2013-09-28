@@ -138,26 +138,6 @@ sub add_page {
             }
         }
             
-    #    # prepare query
-    #    # if nothing is submitted
-    #    if (scalar @{ $data->{$type} } == 0 ){
-    #        for my $col ( @{ $self->schema->{Meal}->{columns} }){
-    #            next if ($col eq "id");
-    #            $query->{$col} = 0;
-    #        }
-    #    }else {
-    #        for my $col ( @{ $self->schema->{Meal}->{columns} }){
-    #            next if ($col eq "id");
-    #            for my $stuff (@{ $data->{$type} }){
-    #                if ($stuff eq $col) {
-    #                    $query->{$col} = 1;
-    #                }else {
-    #                    $query->{$col} = 0;
-    #                }
-    #            }
-    #        }
-    #    }
-
         print Dumper $query;
         my $row = $self->db->single('Meal', $query);
         if (defined $row) {
@@ -242,6 +222,13 @@ sub add_page {
             #TODO error handling 
         }
     }
+
+    # Initiate worker
+    $self->qclient->insert(ChartWorker => 
+        { 
+            user_id => $user_id
+        }
+    ); 
 }
 
 sub confirm_registry {

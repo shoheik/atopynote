@@ -10,10 +10,10 @@ has file => (
     required => 1
 );
 
-has content => ( 
+has _content => ( 
     is => 'ro',
     lazy => 1,
-    builder => "_content_builder" 
+    builder => "_content_builder",
 );
 
 sub _content_builder{
@@ -22,6 +22,11 @@ sub _content_builder{
     my @content = <FILE>;
     my $content = join "\n", @content;
     return eval $content;
+}
+
+sub get {
+    my $self = shift;
+    return $self->_content;
 }
 
 

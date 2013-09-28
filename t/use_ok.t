@@ -12,6 +12,7 @@ use_ok "Atopynote::Controller";
 use_ok "Atopynote::Model";
 use_ok "Atopynote::Service::Role::NoteData";
 use_ok "Atopynote::Service::NoteData::Redis";
+use_ok "Atopynote::Service::NoteData::RDB";
 use_ok "Atopynote::Service::NoteData";
 use_ok "Atopynote::Service::Config";
 
