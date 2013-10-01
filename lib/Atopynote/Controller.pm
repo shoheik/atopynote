@@ -12,11 +12,15 @@ use utf8;
 # Otherwise, show index (TODO)
 sub top {
   my $self = shift;
-  my $session = Plack::Session->new( $self->req->env );
+  my $request = Plack::Request->new($self->req->env);
+  my $session = Plack::Session->new( $request->env );
+
   my $verified = $session->get('verified');
   print Dumper $verified;
   if (defined $verified) {
       # session is ok 
+      print Dumper $session;
+      $request->session_options->{change_id}++;
       $self->stash( uid => $verified );
       $self->render('index');
   } else {

@@ -25,28 +25,22 @@ sub get {
     my ($self, $func, $options) = @_;
 
     # {[[x1, y1], [x2, y2],,] = get("feeling", $num_of_days) 
-    return $self->_get_feeling($options) if ($func eq "feeling");
+    return $self->_get_attr_history($options, "feeling") if ($func eq "feeling");
 
     # {[[x1, y1], [x2, y2],,] = get("itch", $num_of_days) 
-    return $self->_get_itchy($options) if ($func eq "itch");
-}
-
-# get historical feelings 
-sub _get_feeling{
-    my ($self, $num_days) = @_;
-    return $self->_get_attr_history($num_days, "feeling");
-}
-
-sub _get_itchy{
-    my ($self, $num_days) = @_;
-    return $self->_get_attr_history($num_days, "itch");
+    return $self->_get_attr_history($options, "itch") if ($func eq "itch");
 }
 
 sub _get_attr_history {
-    my ($self, $num_days, $attr) = @_;
+    my ($self, $options, $attr) = @_;
+
+    my $num_days = $options->{days};
+    my $user_id = $options->{user_id};
 
     my $itr = $self->search('Diary', 
-        {},
+        { 
+            user_id => $user_id 
+        },
         {
             limit => $num_days,
             order_by => { 'date' => 'ASC' },

@@ -4,15 +4,23 @@ use Data::Dumper;
 use FindBin qw($Bin);
 use Atopynote::DB;
 use Atopynote::DB::Schema;
+use Atopynote::Service::Config;
 use Digest::SHA qw(sha256_hex);
 use Cache::Memcached::Fast;
 use TheSchwartz;
 use POSIX qw(strftime);
+use FindBin qw($Bin);
 
 
 has 'config' => (
     is => 'ro',
     required => 1,
+);
+
+has 'conf' => (
+    is => 'ro',
+    lazy => 1,
+    builder => '_build_config'
 );
 
 has 'db' => (
@@ -46,6 +54,10 @@ sub _build_db {
         password => $self->config->{password}
     });
 }
+
+sub _build_conf {
+    return new Atopynote::Service::Config(file => "$Bin/../etc/atopynote.conf");
+}    
 
 sub _build_memcached {
     my $self = shift;
@@ -224,9 +236,11 @@ sub add_page {
     }
 
     # Initiate worker
-    $self->qclient->insert(ChartWorker => 
+    print Dumper $self->conf; 
+    $self->qclient->insert(HomeViewWorker => 
         { 
-            user_id => $user_id
+            user_id => $user_id,
+            config => $self->conf,
         }
     ); 
 }
@@ -257,7 +271,6 @@ sub confirm_registry {
 
 sub login {
     my ($self, $data) = @_;
-    print Dumper $data;
     my $email = lc $data->{id};
     my $row = $self->db->single('User', {email => $email });
     if (defined $row) {

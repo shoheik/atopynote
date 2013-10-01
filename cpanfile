@@ -11,5 +11,6 @@ requires 'TheSchwartz', 1.10;
 requires 'Mail::Mailer';
 requires 'Starman';
 requires 'Statistics::R';
-requires 'Redis';
+requires 'Redis', 1.961;
+requires 'JSON', 2.59;
 

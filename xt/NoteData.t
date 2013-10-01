@@ -12,14 +12,14 @@ use Data::Dumper;
 
 my $config = new Atopynote::Service::Config(file => "$Bin/../etc/atopynote.conf"); 
 my $conf = $config->get();
-my $redis = Atopynote::Service::NoteData->new(method => Atopynote::Service::NoteData::Redis->new( config => $conf ));
+#my $redis = Atopynote::Service::NoteData->new(method => Atopynote::Service::NoteData::Redis->new( config => $conf ));
 my $rdb = Atopynote::Service::NoteData->new(method => Atopynote::Service::NoteData::RDB->new( config => $conf ));
-my $data = $rdb->get("feeling", 30);
+my $data = $rdb->get("feeling", {days => 30, user_id => 1 } );
+#my $data = $rdb->get("itch", {days => 30, user_id => 1 } );
+
 print Dumper $data;
 #$data = $rdb->get("itch", 30);
 #print Dumper $data;
-
-$redis->set("feeling_history", {key => 3, value => "test"});
-
+#$redis->set("feeling_history", {key => 3, value => "test"});
 
 done_testing();

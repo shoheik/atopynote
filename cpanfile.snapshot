@@ -656,6 +656,16 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       IO::Pty 1.08
       Test::More 0.47
+  JSON-2.59
+    pathname: M/MA/MAKAMAKA/JSON-2.59.tar.gz
+    provides:
+      JSON 2.59
+      JSON::Backend::PP 2.59
+      JSON::Boolean 2.59
+      JSON::backportPP::Boolean 2.27202
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
   LWP-MediaTypes-6.02
     pathname: G/GA/GAAS/LWP-MediaTypes-6.02.tar.gz
     provides:
@@ -891,6 +901,16 @@ DISTRIBUTIONS
       Module::Runtime 0.012
       Role::Tiny 1.003
       strictures 1.004003
+  MooX-Singleton-1.20
+    pathname: A/AJ/AJGB/MooX-Singleton-1.20.tar.gz
+    provides:
+      MooX::Singleton 1.20
+    requirements:
+      ExtUtils::MakeMaker 6.30
+      Module::Build 0.3601
+      Role::Tiny 0
+      strict 0
+      warnings 0
   Net-Server-2.007
     pathname: R/RH/RHANDOM/Net-Server-2.007.tar.gz
     provides:

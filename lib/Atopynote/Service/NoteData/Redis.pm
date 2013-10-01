@@ -21,15 +21,8 @@ sub get {
 }
 
 sub set {
-    my ($self, $func, $options) = @_;
-    return $self->_set_feeling_history($options) if($func eq "feeling_history");
-}
-
-sub _set_feeling_history{
-    my ($self, $options) = @_;
-    my $key = $options->{key};
-    my $value = $options->{value};
-    $self->instance->set("$key:feelings", $value);
+    my ($self, $key, $value) = @_;
+    $self->instance->set($key, $value);
 }
 
 sub update {
