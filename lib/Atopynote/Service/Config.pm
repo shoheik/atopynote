@@ -9,7 +9,7 @@ use Data::Dumper;
 
 has file => (
     is => 'ro',
-    required => 1
+    default => "$Bin/../etc/atopynote.conf",
 );
 
 has _content => ( 
