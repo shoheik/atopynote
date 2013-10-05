@@ -2,7 +2,6 @@ package Atopynote::Service::Config;
 # load config file and the other module use this
 
 use Moo;
-with 'MooX::Singleton';
 
 use FindBin qw($Bin);
 use Data::Dumper;
