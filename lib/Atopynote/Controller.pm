@@ -103,6 +103,15 @@ sub form_meal {
     $self->render(json => $self->model->config->{meal});
 }
 
+sub homeview {
+    my $self = shift;
+    my $request = Plack::Request->new($self->req->env);
+    my $session = Plack::Session->new( $request->env );
+    my $user_id = $session->get('verified');
+    my $result = $self->model->get_homeview($user_id);
+    $self->render(json => $result );
+}
+
 
 
 1;

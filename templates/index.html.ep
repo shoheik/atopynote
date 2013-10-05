@@ -58,6 +58,7 @@ $(document).ready(function() {
     <script src="js/models/DateModel.js"></script>
     <script src="js/models/ChartModel.js"></script>
     <script src="js/adapters/memory-adapter.js"></script>
+    <script src="js/adapters/server-adapter.js"></script>
     <script src="js/adapters/localstorage-server-adapter.js"></script>
     <script src="js/adapters/chart-adapter.js"></script>
     <script src="js/routers/AppRouter.js"></script>

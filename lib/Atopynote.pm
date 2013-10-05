@@ -30,6 +30,9 @@ sub startup {
     $r->post('/login')->to('controller#login');
     $r->get('/logoff')->to('controller#logoff');
     $r->get('/ajaxValidateFieldName')->to('controller#validate_user');
+
+    # data for index#home  
+    $r->get('/homeview')->to('controller#homeview');
 }
 
 1;

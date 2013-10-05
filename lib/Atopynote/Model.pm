@@ -8,6 +8,8 @@ use Digest::SHA qw(sha256_hex);
 use Cache::Memcached::Fast;
 use TheSchwartz;
 use POSIX qw(strftime);
+use Atopynote::Service::NoteData;
+use Atopynote::Service::NoteData::Redis;
 
 
 has 'config' => (
@@ -36,6 +38,17 @@ has 'schema' => (
     is => 'ro',
     default => sub { Atopynote::DB::Schema->schema_info }
 );
+
+has 'redis' => (
+    is => 'ro',
+    lazy => 1,
+    builder => '_build_redis',
+);
+
+sub _build_redis {
+    my $self = shift;
+    return Atopynote::Service::NoteData->new(method => Atopynote::Service::NoteData::Redis->new());
+}
 
 sub _build_db {
     my $self = shift;
@@ -281,6 +294,11 @@ sub validate_user {
     }else {
         return Mojo::JSON->true;
     }
+}
+
+sub get_homeview {
+    my ($self, $user_id) = @_;
+    return $self->redis->get("homeview", {user_id => $user_id});
 }
 
 1;
