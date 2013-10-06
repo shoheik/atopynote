@@ -237,7 +237,6 @@ sub add_page {
     }
 
     # Initiate worker
-    #$self->qclient->insert('Atopynote::Service::Worker::HomeViewWorker' => 
     $self->qclient->insert('HomeViewWorker' => 
         { 
             user_id => $user_id,
@@ -298,7 +297,7 @@ sub validate_user {
 
 sub get_homeview {
     my ($self, $user_id) = @_;
-    return $self->redis->get("homeview", {user_id => $user_id});
+    return $self->redis->get("biorhythm", {user_id => $user_id});
 }
 
 1;

@@ -4,6 +4,7 @@ use warnings;
 use Mojo::Base 'Mojolicious::Controller';
 use Data::Dumper;
 use Plack::Session;
+use Log::Minimal;
 use utf8;
 
 # Access to '/'. 
@@ -108,6 +109,10 @@ sub homeview {
     my $request = Plack::Request->new($self->req->env);
     my $session = Plack::Session->new( $request->env );
     my $user_id = $session->get('verified');
+    if (! defined $user_id || $user_id eq "") {
+        warnf("User ID can be found. Redirect to top.html");
+        $self->redirect_to('/top.html');
+    }
     my $result = $self->model->get_homeview($user_id);
     $self->render(json => $result );
 }

@@ -13,4 +13,5 @@ requires 'Starman';
 requires 'Statistics::R';
 requires 'Redis', 1.961;
 requires 'JSON', 2.59;
+requires 'Log::Minimal', 0.16;
 
