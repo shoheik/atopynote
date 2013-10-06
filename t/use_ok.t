@@ -15,6 +15,7 @@ use_ok "Atopynote::Service::NoteData::Redis";
 use_ok "Atopynote::Service::NoteData::RDB";
 use_ok "Atopynote::Service::NoteData";
 use_ok "Atopynote::Service::Config";
-use_ok "Atopynote::Service::Worker::HomeViewWorker";
+use_ok "Atopynote::Service::Job::HomeView";
+use_ok "Atopynote::Service::Job::Mail";
 
 done_testing();
